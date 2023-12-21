@@ -9,12 +9,9 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(){
-        return "spring";
+        return "index";
     }
 
 
-    @GetMapping("/header")
-    public String header(){
-        return "header";
-    }
+
 }
