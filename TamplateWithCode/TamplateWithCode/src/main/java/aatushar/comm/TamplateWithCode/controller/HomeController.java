@@ -15,12 +15,12 @@ public class HomeController {
     }
 
 
-<<<<<<< HEAD
 
-=======
+
+
 //    @GetMapping("/header")
 //    public String header(){
 //        return "header";
 //    }
->>>>>>> 299f93836f74fcc3028ca5b8799642308bec9c3e
+
 }
