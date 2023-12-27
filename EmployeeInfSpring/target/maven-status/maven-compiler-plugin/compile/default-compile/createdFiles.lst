@@ -1,0 +1,6 @@
+com\mycompany\employeeinfspring\controller\EmployeeController.class
+com\mycompany\employeeinfspring\dao\EmployeeDao$1.class
+com\mycompany\employeeinfspring\model\Employee.class
+com\mycompany\employeeinfspring\dao\EmployeeDao.class
+com\mycompany\employeeinfspring\JakartaRestConfiguration.class
+com\mycompany\employeeinfspring\resources\JakartaEE8Resource.class
