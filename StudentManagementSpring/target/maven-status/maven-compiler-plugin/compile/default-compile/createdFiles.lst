@@ -1,0 +1,6 @@
+com\mycompany\studentmanagementspring\dao\EmployeeDao.class
+com\mycompany\studentmanagementspring\dao\EmployeeDao$1.class
+com\mycompany\studentmanagementspring\model\Employee.class
+com\emranhss\springmvccrudevd\JakartaRestConfiguration.class
+com\mycompany\studentmanagementspring\controller\EmployeeController.class
+com\mycompany\studentmanagementspring\resources\JakartaEE8Resource.class

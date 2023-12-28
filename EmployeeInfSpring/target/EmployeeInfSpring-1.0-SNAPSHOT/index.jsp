@@ -9,7 +9,13 @@
 <html>
     <title>Start Page</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World! ggggggggggggggg</h1>
+        <h1>Hello World!</h1>
+        
+        <a href="/empsaveform">Add</a> 
+        
+                            <a href="/viewallemp">View ALl</a>
+    </body>
 </html>
