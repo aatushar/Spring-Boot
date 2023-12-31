@@ -13,7 +13,7 @@
 
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Student Save From</h1>
 
 
         <f:form method="post" action="/empsave"  modelAttribute="student">
@@ -31,10 +31,28 @@
                         <td>
                             Department
                         </td>
-                        <td>                        
-                        <f:input path="department"></f:input>
-                        </td>
+                          </td>
+                <td>
+                    <f:select path="department">
+                        <f:option value="Accounting">Accounting</f:option>
+                        <f:option value="Management">Management</f:option>
+                        <f:option value="Marketing">Marketing</f:option>
+                        <f:option value="Finance">Finance</f:option>
+                    </f:select>
+                </td>
                     </tr>
+                    
+                    <tr>
+                        <td>
+                            Gender
+                        </td>
+                    
+                     
+                <td>
+                    <f:radiobutton path="gender" value="Male" label="Male"></f:radiobutton>
+                    <f:radiobutton path="gender" value="Female" label="Female"></f:radiobutton>
+                </td>
+            </tr>
 
                     <tr>
                         <td>
@@ -48,7 +66,7 @@
                     
                     <tr>
                         <td>                      
-                            <input  type="submit" value="Save"/>
+                            <input class="btn btn-success" type="submit" value="Save"/>
                         </td>
                     </tr>
                   

@@ -48,6 +48,7 @@
                 <th>ID</th>
                 <th>Name</th>
                 <th>Department</th>
+                <th> Gender</th>
                 <th>Marks</th>
                 <th>Action</th>
             </tr>
@@ -58,6 +59,7 @@
                     <td>${emp.id}</td>
                     <td>${emp.name}</td>
                     <td>${emp.department}</td>
+                    <td>${emp.gender}</td>
                     <td>${emp.marks}</td>
                     <td>
                         <a href="/empeditform/${emp.id}" class="btn btn-warning">Edit</a>

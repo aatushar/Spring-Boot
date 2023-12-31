@@ -33,8 +33,8 @@ public class EmployeeDao {
 
     public int saveEmp(Employee e) {
 
-        String sql = "insert into student(name, department, marks)"
-                + "values('" + e.getName() + "', '" + e.getdepartment() + "', '" + e.getmarks() + "')";
+        String sql = "insert into student(name, department, gender, marks)"
+                + "values('" + e.getName() + "', '" + e.getdepartment() + "','" + e.getGender() +"', '" + e.getmarks() + "')";
 
         return jdbcTemplate.update(sql);
     }
@@ -60,6 +60,7 @@ public class EmployeeDao {
                         rs.getInt("id"),
                         rs.getString("name"),
                         rs.getString("department"),
+                        rs.getString("gender"),
                         rs.getString("marks")
                        
                 );
