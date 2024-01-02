@@ -30,9 +30,9 @@ public class EmployeeController {
     
     @GetMapping("/viewallemp")
     public  String viewAllEmp(Model m){
-        List<Employee> empList=ed.getAllEmp();        
-        m.addAttribute("empList", empList);
-        return "viewAllEmp";
+        List<Employee> productList=ed.getAllEmp();        
+        m.addAttribute("productList", productList);
+        return "viewallemp";
     
     }
     
@@ -63,7 +63,7 @@ public class EmployeeController {
         return  "empEdit";
     }
     
-    @RequestMapping("/editempsave")
+    @RequestMapping("/producteditsave")
     public String editEmpSave(@ModelAttribute("student") Employee student){
         ed.updateEmp(student);
         return "redirect:/viewallemp";

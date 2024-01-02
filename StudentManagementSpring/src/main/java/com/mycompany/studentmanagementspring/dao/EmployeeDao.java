@@ -33,35 +33,35 @@ public class EmployeeDao {
 
     public int saveEmp(Employee e) {
 
-        String sql = "insert into student(name, department, gender, marks)"
-                + "values('" + e.getName() + "', '" + e.getdepartment() + "','" + e.getGender() +"', '" + e.getmarks() + "')";
+        String sql = "insert into product(name, price, quantity, brand)"
+                + "values('" + e.getName() + "', '" + e.getPrice() + "','" + e.getQuantity() +"', '" + e.getBrand() + "')";
 
         return jdbcTemplate.update(sql);
     }
 
     public int deleteEmp(int id) {
 
-        String sql = "delete from student where id=" + id + " ";
+        String sql = "delete from product where id=" + id + " ";
 
         return jdbcTemplate.update(sql);
     }
 
     public int updateEmp(Employee e) {
 
-        String sql = "update  student set name='"  +  e.getdepartment() + "' where id='" + e.getId() + "' ";
+        String sql = "update  product set name='"  +  e.getName() + "',pricet='"  +  e.getPrice() + "' ,quantity='"  +  e.getQuantity() + "',brand='"  +  e.getBrand()+ "'where id='" + e.getId() + "' ";
 
         return jdbcTemplate.update(sql);
     }
 
     public List<Employee> getAllEmp() {
-        return jdbcTemplate.query("select * from student", new RowMapper<Employee>() {
+        return jdbcTemplate.query("select * from product", new RowMapper<Employee>() {
             public Employee mapRow(ResultSet rs, int row) throws SQLException {
                 Employee e = new Employee(
                         rs.getInt("id"),
                         rs.getString("name"),
-                        rs.getString("department"),
-                        rs.getString("gender"),
-                        rs.getString("marks")
+                        rs.getString("price"),
+                        rs.getString("quantity"),
+                        rs.getString("brand")
                        
                 );
 
@@ -72,7 +72,7 @@ public class EmployeeDao {
     }
 
     public Employee getEmpById(int id) {
-        String sql = "select * from student where id=?";
+        String sql = "select * from product where id=?";
         return jdbcTemplate.queryForObject(sql, new Object[]{id}, new BeanPropertyRowMapper<Employee>(Employee.class));
     }
 

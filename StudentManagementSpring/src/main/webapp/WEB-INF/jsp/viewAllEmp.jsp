@@ -5,13 +5,13 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Student Information</title>
+    <title>Product Information</title>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 
     <!-- Your custom CSS -->
-    <style>
+<!--    <style>
         body {
             padding: 20px;
         }
@@ -30,40 +30,41 @@
         }
 
         th {
-            background-color: #007bff;
-            color: #fff;
+            background-color: black;
+            color: black;
         }
 
         .btn {
             margin-right: 5px;
         }
-    </style>
+    </style>-->
 </head>
 <body>
-    <h1>Student Information</h1>
-
+    <h1>Product Information</h1>
+    
     <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Department</th>
-                <th> Gender</th>
-                <th>Marks</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Brand</th>
                 <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            <c:forEach var="emp" items="${empList}">
+            <c:forEach var="product" items="${productList}">
                 <tr>
-                    <td>${emp.id}</td>
-                    <td>${emp.name}</td>
-                    <td>${emp.department}</td>
-                    <td>${emp.gender}</td>
-                    <td>${emp.marks}</td>
+                    <td>${product.id}</td>
+                    <td>${product.name}</td>
+           
+                    <td>${product.price}</td>
+                    <td>${product.quantity}</td>
+                    <td>${product.brand}</td>
                     <td>
-                        <a href="/empeditform/${emp.id}" class="btn btn-warning">Edit</a>
-                        <a href="/deleteemp/${emp.id}" class="btn btn-danger">Delete</a>
+                        <a href="/empeditform/${product.id}" class="btn btn-warning">Edit</a>
+                        <a href="/deleteemp/${product.id}" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
             </c:forEach>

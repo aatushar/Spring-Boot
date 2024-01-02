@@ -20,10 +20,10 @@
 
         <div class="row mt-3">
             <div class="col-md-6">
-                <a href="/empsaveform" class="btn btn-primary">Add Student</a>
+                <a href="/empsaveform" class="btn btn-primary">Add product</a>
             </div>
             <div class="col-md-6">
-                <a href="/viewallemp" class="btn btn-success">View All Students</a>
+                <a href="/viewallemp" class="btn btn-success">View All Product</a>
             </div>
         </div>
     </div>

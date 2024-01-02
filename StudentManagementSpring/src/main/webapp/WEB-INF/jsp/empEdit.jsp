@@ -9,7 +9,7 @@
 <body>
     <h1>Hello World!</h1>
 
-    <f:form method="post" action="/editempsave" modelAttribute="student">
+    <f:form method="post" action="/producteditsave" modelAttribute="product">
 
         <f:hidden path="id" />
         <table class="table table-striped">
@@ -24,34 +24,33 @@
 
             <tr>
                 <td>
-                    Department
+                    Price
                 </td>
                 <td>
-                    <f:select path="department">
-                        <f:option value="Accounting">Accounting</f:option>
-                        <f:option value="Management">Management</f:option>
-                        <f:option value="Marketing">Marketing</f:option>
-                        <f:option value="Finance">Finance</f:option>
+                    <f:input path="price"></f:input>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Quantity
+                </td>
+                <td>
+                    <f:input path="quantity"></f:input>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Brand
+                </td>
+                <td>
+                    <f:select path="brand">
+                        <f:option value="Samsung">Samsung</f:option>
+                        <f:option value="OnePlus">OnePlus</f:option>
+                        <f:option value="Xiaomi">Xiaomi</f:option>
+                        <f:option value="Apple">Apple</f:option>
                     </f:select>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    Gender
-                </td>
-                <td>
-                    <f:radiobutton path="gender" value="Male" label="Male"></f:radiobutton>
-                    <f:radiobutton path="gender" value="Female" label="Female"></f:radiobutton>
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    Marks
-                </td>
-                <td>
-                    <f:input path="marks"></f:input>
                 </td>
             </tr>
 

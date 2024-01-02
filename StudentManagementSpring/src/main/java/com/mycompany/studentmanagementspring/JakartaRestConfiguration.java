@@ -1,4 +1,4 @@
-package com.emranhss.springmvccrudevd;
+package com.mycompany.studentmanagementspring;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
