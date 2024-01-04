@@ -14,5 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
             return "student";
         }
+    @GetMapping("/all")
+    public String all(){
 
+        return "viewallstudent";
+    }
 }
