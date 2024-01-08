@@ -19,7 +19,7 @@ public class ProjectSecurity {
                        .requestMatchers(" /admin/*").authenticated()
                )
                .authorizeHttpRequests((authorize) -> authorize
-                       .requestMatchers("/public/*").permitAll()
+                       .requestMatchers("/public/**").permitAll()
                )
                .httpBasic(Customizer.withDefaults())
                .formLogin(Customizer.withDefaults());
