@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Journal</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form, table {
+            width: 60%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form label, form input, form textarea, form select {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        select, textarea, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        #addRowBtn {
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+        }
+
+        #lessRowBtn {
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Journal Entry Form</h2>
+
+<form action="#" method="post">
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" required>
+
+    <label for="journalSerial">Journal Serial No:</label>
+    <input type="text" id="journalSerial" name="journalSerial" required>
+
+    <label for="reference">Reference:</label>
+    <input type="text" id="reference" name="reference">
+
+    <label for="notes">Notes:</label>
+    <textarea id="notes" name="notes" rows="4" cols="50"></textarea>
+
+    <label for="cashJournal">Cash based Journal:</label>
+    <input type="checkbox" id="cashJournal" name="cashJournal">
+
+    <label for="transactionType">Transaction Type:</label>
+    <select id="transactionType" name="transactionType">
+        <option value="BDT">BDT - Bangladeshi Taka</option>
+        <option value="USD">USD - United States Dollar</option>
+        <option value="INR">Indian Rupees</option>
+    </select>
+</form>
+
+<!-- Table Starts -->
+<h2>Journal Table</h2>
+
+<table border="1" id="journalTable">
+    <thead>
+    <tr>
+        <th>ACCOUNT</th>
+        <th>DESCRIPTION</th>
+        <th>CONTACT(BDT)</th>
+        <th>TAX</th>
+        <th>DEBITS</th>
+        <th>CREDITS</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Row 1 -->
+    <tr>
+        <td>
+            <select>
+                <option value="Other Current Asset">Other Current Asset</option>
+                <option value="Cash">Cash</option>
+                <option value="Bank">Bank</option>
+                <option value="Account Receivable">Account Receivable</option>
+                <option value="Fixed Asset">Fixed Asset</option>
+                <option value="Other Current Liabilities">Other Current Liabilities</option>
+                <option value="Account payable">Account payable</option>
+                <option value="Equity">Equity</option>
+                <option value="Income">Income</option>
+                <option value="Expenses">Expenses</option>
+                <option value="Cost Of Good Sold">Cost Of Good Sold</option>
+                <option value="Other Expenses">Other Expenses</option>
+            </select>
+        </td>
+        <td><textarea rows="4" cols="50"></textarea></td>
+        <td>
+            <select>
+                <option value="Contact1">Contact1</option>
+                <option value="Contact2">Contact2</option>
+                <option value="Contact3">Contact3</option>
+                <!-- Add more contacts as needed -->
+            </select>
+        </td>
+        <td>
+            <select>
+                <option value="5%">5% VAT</option>
+                <!-- Add more tax options as needed -->
+            </select>
+        </td>
+        <td><input type="text" name="debits"></td>
+        <td><input type="text" name="credits"></td>
+    </tr>
+
+    <!-- Add more rows as needed -->
+    </tbody>
+</table>
+
+<!-- Button Container -->
+<div class="btn-container">
+    <button id="addRowBtn" onclick="addRow()">Add Row</button>
+    <button id="lessRowBtn" onclick="lessRow()">Less Row</button>
+</div>
+
+<script>
+    function addRow() {
+        var table = document.getElementById("journalTable");
+        var newRow = table.insertRow(table.rows.length);
+
+        // Array of field values
+        var fields = ["Other Current Asset", "", "Contact1", "5%", "", ""];
+
+        // Loop through fields and create cells
+        for (var i = 0; i < fields.length; i++) {
+            var cell = newRow.insertCell(i);
+            if (i === 1) {
+                // For DESCRIPTION, use a textarea
+                var textarea = document.createElement("textarea");
+                textarea.rows = 4;
+                textarea.cols = 50;
+                cell.appendChild(textarea);
+            } else if (i === 3) {
+                // For TAX, use a select with options
+                var select = document.createElement("select");
+                var option = document.createElement("option");
+                option.value = "5%";
+                option.text = "5% VAT";
+                select.appendChild(option);
+                // Add more tax options as needed
+                cell.appendChild(select);
+            } else {
+                // For other fields, use input or select
+                var input = document.createElement(i === 0 || i === 2 ? "select" : "input");
+                if (i === 0 || i === 2) {
+                    // For ACCOUNT and CONTACT, use options
+                    var option = document.createElement("option");
+                    option.value = fields[i];
+                    option.text = fields[i];
+                    input.appendChild(option);
+                    // Add more options as needed
+                } else {
+                    // For other fields, set input type and name
+                    input.type = "text";
+                    input.name = i === 4 ? "debits" : "credits";
+                }
+                cell.appendChild(input);
+            }
+        }
+    }
+
+    function lessRow() {
+        var table = document.getElementById("journalTable");
+        if (table.rows.length > 1) {
+            table.deleteRow(table.rows.length - 1);
+        }
+    }
+</script>
+
+</body>
+</html>

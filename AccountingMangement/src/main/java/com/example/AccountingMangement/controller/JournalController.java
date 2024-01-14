@@ -5,19 +5,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+
 @Controller
+@RequestMapping("/journal")
 
 
 
-@RequestMapping("/item")
-public class ItemController {
+public class JournalController {
     @GetMapping("")
-    public String item(){
-        return "item";
+    public String journal(){
+        return "journal";
     }
-//    @GetMapping("/index")
-//    public String index(){
-//        return "index";
-//    }
+
 
 }
