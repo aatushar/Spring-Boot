@@ -178,59 +178,45 @@
     <button id="cancelBtn" onclick="cancelData()">Cancel</button>
 </div>
 
-<script>
-    function addRow() {
+
+    <script>
+        function addRow() {
         var table = document.getElementById("journalTable");
-        var newRow = table.insertRow(table.rows.length);
+        var originalRow = table.rows[1]; // Assuming the first row is your original row
 
-        // Array of field values
-        var fields = ["Other Current Asset", "", "Contact1", "5%", "", ""];
+        // Clone the original row
+        var newRow = originalRow.cloneNode(true);
 
-        // Loop through fields and create cells
-        for (var i = 0; i < fields.length; i++) {
-            var cell = newRow.insertCell(i);
-            if (i === 1) {
-                // For DESCRIPTION, use a textarea
-                var textarea = document.createElement("textarea");
-                textarea.rows = 4;
-                textarea.cols = 50;
-                cell.appendChild(textarea);
-            } else if (i === 3) {
-                // For TAX, use a select with options
-                var select = document.createElement("select");
-                var option = document.createElement("option");
-                option.value = "5%";
-                option.text = "5% VAT";
-                select.appendChild(option);
-                // Add more tax options as needed
-                cell.appendChild(select);
-            } else {
-                // For other fields, use input or select
-                var input = document.createElement(i === 0 || i === 2 ? "select" : "input");
-                if (i === 0 || i === 2) {
-                    // For ACCOUNT and CONTACT, use options
-                    var option = document.createElement("option");
-                    option.value = fields[i];
-                    option.text = fields[i];
-                    input.appendChild(option);
-                    // Add more options as needed
-                } else {
-                    // For other fields, set input type and name
-                    input.type = "text";
-                    input.name = i === 4 ? "debits" : "credits";
-                }
-                cell.appendChild(input);
-            }
-        }
+        // Clear selected values in dropdowns
+        var dropdowns = newRow.getElementsByTagName("select");
+        for (var i = 0; i < dropdowns.length; i++) {
+        dropdowns[i].selectedIndex = 0;
     }
 
-    function lessRow() {
+        // Clear text content in textareas
+        var textareas = newRow.getElementsByTagName("textarea");
+        for (var j = 0; j < textareas.length; j++) {
+        textareas[j].value = "";
+    }
+
+        // Clear text content in input fields
+        var inputs = newRow.getElementsByTagName("input");
+        for (var k = 0; k < inputs.length; k++) {
+        inputs[k].value = "";
+    }
+
+        // Insert the cloned row
+        table.appendChild(newRow);
+    }
+
+        function lessRow() {
         var table = document.getElementById("journalTable");
         if (table.rows.length > 1) {
-            table.deleteRow(table.rows.length - 1);
-        }
+        table.deleteRow(table.rows.length - 1);
+    }
     }
 </script>
+
 
 </body>
 </html>
