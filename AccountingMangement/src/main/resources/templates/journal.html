@@ -125,11 +125,16 @@
         <td>
             <select>
                 <option value="Other Current Asset">Other Current Asset</option>
+
                 <option value="Cash">Cash</option>
                 <option value="Bank">Bank</option>
                 <option value="Account Receivable">Account Receivable</option>
                 <option value="Fixed Asset">Fixed Asset</option>
-                <option value="Other Current Liabilities">Other Current Liabilities</option>
+                <optgroup label="Other Current Liabilities">
+                    <option value="Advance Tax">Advance Tax</option>
+                    <option value="Employee Advance">Employee Advance</option>
+                    <option value="Prepaid Expenses">Prepaid Expenses</option>
+                </optgroup>
                 <option value="Account payable">Account payable</option>
                 <option value="Equity">Equity</option>
                 <option value="Income">Income</option>
@@ -165,6 +170,12 @@
 <div class="btn-container">
     <button id="addRowBtn" onclick="addRow()">Add Row</button>
     <button id="lessRowBtn" onclick="lessRow()">Less Row</button>
+</div>
+
+<!-- Save and Cancel buttons -->
+<div class="btn-container">
+    <button id="saveBtn" onclick="saveData()">Save</button>
+    <button id="cancelBtn" onclick="cancelData()">Cancel</button>
 </div>
 
 <script>
