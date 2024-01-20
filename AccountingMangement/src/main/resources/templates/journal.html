@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">>
 <head>
     <meta charset="UTF-8">
-    <title>Journal</title>
+    <title th:text="${title}"></title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -79,143 +80,133 @@
 </head>
 <body>
 
-<h2>Journal Entry Form</h2>
+<div class="container">
 
-<form action="#" method="post">
-    <label for="date">Date:</label>
-    <input type="date" id="date" name="date" required>
 
-    <label for="journalSerial">Journal Serial No:</label>
-    <input type="text" id="journalSerial" name="journalSerial" required>
+    <h2 class="text-center bg-info p-2" th:if="${id==null}">Add Journal</h2>
+    <h2 class="text-center bg-secondary p-2" th:if="${id!=null}">Update Journal</h2>
 
-    <label for="reference">Reference:</label>
-    <input type="text" id="reference" name="reference">
+    <form action="#" method="post" th:action="@{/journal/save}" th:object= "${journal}">
+        <input type="hidden" class="form-control" th:field="*{id}">
 
-    <label for="notes">Notes:</label>
-    <textarea id="notes" name="notes" rows="4" cols="50"></textarea>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" th:field="*{date}" required>
 
-    <label for="cashJournal">Cash based Journal:</label>
-    <input type="checkbox" id="cashJournal" name="cashJournal">
+        <label for="journalSerial">Journal Serial No:</label>
+        <input type="text" id="journalSerial" name="journalSerial" th:field="*{journalSerial}" required>
 
-    <label for="transactionType">Transaction Type:</label>
-    <select id="transactionType" name="transactionType">
-        <option value="BDT">BDT - Bangladeshi Taka</option>
-        <option value="USD">USD - United States Dollar</option>
-        <option value="INR">Indian Rupees</option>
-    </select>
-</form>
+        <label for="reference">Reference:</label>
+        <input type="text" id="reference" name="reference" th:field="*{reference}">
 
-<!-- Table Starts -->
-<h2>Journal Table</h2>
+        <label for="notes">Notes:</label>
+        <textarea id="notes" name="notes" rows="4" cols="50" th:field="*{notes}"></textarea>
 
-<table border="1" id="journalTable">
-    <thead>
-    <tr>
-        <th>ACCOUNT</th>
-        <th>DESCRIPTION</th>
-        <th>CONTACT(BDT)</th>
-        <th>TAX</th>
-        <th>DEBITS</th>
-        <th>CREDITS</th>
-    </tr>
-    </thead>
-    <tbody>
-    <!-- Row 1 -->
-    <tr>
-        <td>
-            <select>
-                <option value="Other Current Asset">Other Current Asset</option>
+        <label for="cashJournal">Cash based Journal:</label>
+        <input type="checkbox" id="cashJournal" name="cashJournal" th:field="*{cashJournal}">
 
-                <option value="Cash">Cash</option>
-                <option value="Bank">Bank</option>
-                <option value="Account Receivable">Account Receivable</option>
-                <option value="Fixed Asset">Fixed Asset</option>
-                <optgroup label="Other Current Liabilities">
-                    <option value="Advance Tax">Advance Tax</option>
-                    <option value="Employee Advance">Employee Advance</option>
-                    <option value="Prepaid Expenses">Prepaid Expenses</option>
-                </optgroup>
-                <option value="Account payable">Account payable</option>
-                <option value="Equity">Equity</option>
-                <option value="Income">Income</option>
-                <option value="Expenses">Expenses</option>
-                <option value="Cost Of Good Sold">Cost Of Good Sold</option>
-                <option value="Other Expenses">Other Expenses</option>
-            </select>
-        </td>
-        <td><textarea rows="4" cols="50"></textarea></td>
-        <td>
-            <select>
-                <option value="Contact1">Contact1</option>
-                <option value="Contact2">Contact2</option>
-                <option value="Contact3">Contact3</option>
-                <!-- Add more contacts as needed -->
-            </select>
-        </td>
-        <td>
-            <select>
-                <option value="5%">5% VAT</option>
-                <!-- Add more tax options as needed -->
-            </select>
-        </td>
-        <td><input type="text" name="debits"></td>
-        <td><input type="text" name="credits"></td>
-    </tr>
+        <label for="transactionType">Transaction Type:</label>
+        <select id="transactionType" name="transactionType" th:field="*{transactionType}">
+            <option value="BDT">BDT - Bangladeshi Taka</option>
+            <option value="USD">USD - United States Dollar</option>
+            <option value="INR">Indian Rupees</option>
+        </select>
 
-    <!-- Add more rows as needed -->
-    </tbody>
-</table>
+        <!-- Table Starts -->
+        <h2>Journal Table</h2>
 
-<!-- Button Container -->
-<div class="btn-container">
-    <button id="addRowBtn" onclick="addRow()">Add Row</button>
-    <button id="lessRowBtn" onclick="lessRow()">Less Row</button>
-</div>
+        <table border="1" id="journalTable">
+            <thead>
+            <tr>
+                <th>ACCOUNT</th>
+                <th>DESCRIPTION</th>
+                <th>CONTACT(BDT)</th>
+                <th>TAX</th>
+                <th>DEBITS</th>
+                <th>CREDITS</th>
+            </tr>
+            </thead>
+            <tbody>
+            Row 1
+            <tr th:each="row, rowStat : *{yourObject.rows}" th:object="${row}" th:remove="tag">
+                <td>
+                    <select th:field="*{rows[__${rowStat.index}__].account}">
+                        <option value="Other Current Asset">Other Current Asset</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </td>
+                <td><textarea th:field="*{rows[__${rowStat.index}__].description}" rows="4" cols="50"></textarea></td>
+                <td>
+                    <select th:field="*{rows[__${rowStat.index}__].contact}">
+                        <option value="Contact1">Contact1</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </td>
+                <td>
+                    <select th:field="*{rows[__${rowStat.index}__].tax}">
+                        <option value="5%">5% VAT</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </td>
+                <td><input type="text" th:field="*{rows[__${rowStat.index}__].debits}" name="debits"></td>
+                <td><input type="text" th:field="*{rows[__${rowStat.index}__].credits}" name="credits"></td>
+            </tr>
 
-<!-- Save and Cancel buttons -->
-<div class="btn-container">
-    <button id="saveBtn" onclick="saveData()">Save</button>
-    <button id="cancelBtn" onclick="cancelData()">Cancel</button>
-</div>
+            <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </form>
+
+
+    <!-- Button Container -->
+    <div class="btn-container">
+        <button id="addRowBtn" onclick="addRow()">Add Row</button>
+        <button id="lessRowBtn" onclick="lessRow()">Less Row</button>
+    </div>
+
+    <!-- Save and Cancel buttons -->
+    <div class="btn-container">
+        <button id="saveBtn" onclick="saveData()">Save</button>
+        <button id="cancelBtn" onclick="cancelData()">Cancel</button>
+    </div>
 
 
     <script>
         function addRow() {
-        var table = document.getElementById("journalTable");
-        var originalRow = table.rows[1]; // Assuming the first row is your original row
+            var table = document.getElementById("journalTable");
+            var originalRow = table.rows[1]; // Assuming the first row is your original row
 
-        // Clone the original row
-        var newRow = originalRow.cloneNode(true);
+            // Clone the original row
+            var newRow = originalRow.cloneNode(true);
 
-        // Clear selected values in dropdowns
-        var dropdowns = newRow.getElementsByTagName("select");
-        for (var i = 0; i < dropdowns.length; i++) {
-        dropdowns[i].selectedIndex = 0;
-    }
+            // Clear selected values in dropdowns
+            var dropdowns = newRow.getElementsByTagName("select");
+            for (var i = 0; i < dropdowns.length; i++) {
+                dropdowns[i].selectedIndex = 0;
+            }
 
-        // Clear text content in textareas
-        var textareas = newRow.getElementsByTagName("textarea");
-        for (var j = 0; j < textareas.length; j++) {
-        textareas[j].value = "";
-    }
+            // Clear text content in textareas
+            var textareas = newRow.getElementsByTagName("textarea");
+            for (var j = 0; j < textareas.length; j++) {
+                textareas[j].value = "";
+            }
 
-        // Clear text content in input fields
-        var inputs = newRow.getElementsByTagName("input");
-        for (var k = 0; k < inputs.length; k++) {
-        inputs[k].value = "";
-    }
+            // Clear text content in input fields
+            var inputs = newRow.getElementsByTagName("input");
+            for (var k = 0; k < inputs.length; k++) {
+                inputs[k].value = "";
+            }
 
-        // Insert the cloned row
-        table.appendChild(newRow);
-    }
+            // Insert the cloned row
+            table.appendChild(newRow);
+        }
 
         function lessRow() {
-        var table = document.getElementById("journalTable");
-        if (table.rows.length > 1) {
-        table.deleteRow(table.rows.length - 1);
-    }
-    }
-</script>
+            var table = document.getElementById("journalTable");
+            if (table.rows.length > 1) {
+                table.deleteRow(table.rows.length - 1);
+            }
+        }
+    </script>
 
 
 </body>

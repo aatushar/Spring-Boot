@@ -1,147 +1,147 @@
-<!DOCTYPE html>
-<html lang="en">
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
 
-<head>
-    <meta charset="utf-8">
-    <title>AccountingManagement</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+<!--<head>-->
+<!--    <meta charset="utf-8">-->
+<!--    <title>AccountingManagement</title>-->
+<!--    <meta content="width=device-width, initial-scale=1.0" name="viewport">-->
+<!--    <meta content="" name="keywords">-->
+<!--    <meta content="" name="description">-->
 
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+<!--    &lt;!&ndash; Favicon &ndash;&gt;-->
+<!--    <link href="img/favicon.ico" rel="icon">-->
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!--    &lt;!&ndash; Bootstrap CSS &ndash;&gt;-->
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">-->
 
-    <style>
-        /* Add your custom styles here */
+<!--    <style>-->
+<!--        /* Add your custom styles here */-->
 
-        body {
-            background-color: #f8f9fa; /* Light gray background color */
-            padding: 20px;
-        }
+<!--        body {-->
+<!--            background-color: #f8f9fa; /* Light gray background color */-->
+<!--            padding: 20px;-->
+<!--        }-->
 
-        form {
-            max-width: 500px;
-            margin: 0 auto;
-            background-color: #ffffff; /* White background color */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
+<!--        form {-->
+<!--            max-width: 500px;-->
+<!--            margin: 0 auto;-->
+<!--            background-color: #ffffff; /* White background color */-->
+<!--            padding: 20px;-->
+<!--            border-radius: 10px;-->
+<!--            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);-->
+<!--        }-->
 
-        label {
-            color: #495057; /* Dark gray text color */
-            font-weight: bold;
-        }
+<!--        label {-->
+<!--            color: #495057; /* Dark gray text color */-->
+<!--            font-weight: bold;-->
+<!--        }-->
 
-        input,
-        select,
-        textarea {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #ced4da; /* Light gray border color */
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
+<!--        input,-->
+<!--        select,-->
+<!--        textarea {-->
+<!--            width: 100%;-->
+<!--            padding: 8px;-->
+<!--            margin-bottom: 10px;-->
+<!--            border: 1px solid #ced4da; /* Light gray border color */-->
+<!--            border-radius: 4px;-->
+<!--            box-sizing: border-box;-->
+<!--        }-->
 
-        button {
-            background-color: #007bff; /* Bootstrap primary color */
-            color: #fff; /* White text color */
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
+<!--        button {-->
+<!--            background-color: #007bff; /* Bootstrap primary color */-->
+<!--            color: #fff; /* White text color */-->
+<!--            padding: 10px 15px;-->
+<!--            border: none;-->
+<!--            border-radius: 4px;-->
+<!--            cursor: pointer;-->
+<!--        }-->
 
-        button[type="button"] {
-            background-color: #dc3545; /* Bootstrap danger color */
-        }
-    </style>
-</head>
+<!--        button[type="button"] {-->
+<!--            background-color: #dc3545; /* Bootstrap danger color */-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
 
-<body>
+<!--<body>-->
 
-<form action="process_form.php" method="post">
+<!--<form action="process_form.php" method="post">-->
     <div class="mb-3">
         <label for="type" class="form-label">Type:</label><br>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="type" value="Goods" id="goods">
             <label class="form-check-label" for="goods">Goods</label>
         </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="type" value="Service" id="service">
-            <label class="form-check-label" for="service">Service</label>
-        </div>
-    </div>
+<!--        <div class="form-check form-check-inline">-->
+<!--            <input class="form-check-input" type="radio" name="type" value="Service" id="service">-->
+<!--            <label class="form-check-label" for="service">Service</label>-->
+<!--        </div>-->
+<!--    </div>-->
 
-    <div class="mb-3">
-        <label for="name" class="form-label">Name:</label><br>
-        <input type="text" name="name" id="name" class="form-control" required>
-    </div>
+<!--    <div class="mb-3">-->
+<!--        <label for="name" class="form-label">Name:</label><br>-->
+<!--        <input type="text" name="name" id="name" class="form-control" required>-->
+<!--    </div>-->
 
-    <div class="mb-3">
-        <label for="unit" class="form-label">Unit:</label><br>
-        <select name="unit" id="unit" class="form-select">
-            <option value="box">Box</option>
-            <option value="cm">Centimeter</option>
-            <option value="dz">Dozen</option>
-            <option value="feet">Feet</option>
-            <option value="pcs">Pieces</option>
-        </select>
-    </div>
+<!--    <div class="mb-3">-->
+<!--        <label for="unit" class="form-label">Unit:</label><br>-->
+<!--        <select name="unit" id="unit" class="form-select">-->
+<!--            <option value="box">Box</option>-->
+<!--            <option value="cm">Centimeter</option>-->
+<!--            <option value="dz">Dozen</option>-->
+<!--            <option value="feet">Feet</option>-->
+<!--            <option value="pcs">Pieces</option>-->
+<!--        </select>-->
+<!--    </div>-->
 
 
-    <div class="mb-3">
-        <label for="selling_price" class="form-label">Selling Price (BDT):</label><br>
-        <input type="number" name="selling_price" id="selling_price" class="form-control" required>
-    </div>
+<!--    <div class="mb-3">-->
+<!--        <label for="selling_price" class="form-label">Selling Price (BDT):</label><br>-->
+<!--        <input type="number" name="selling_price" id="selling_price" class="form-control" required>-->
+<!--    </div>-->
 
-    <div class="mb-3">
-        <label for="account" class="form-label">Account:</label><br>
-        <select name="account" id="account" class="form-select">
-            <option value="sales">Sales</option>
-            <option value="discount">Discount</option>
-            <option value="general_income">General Income</option>
-            <option value="interest_income">Interest Income</option>
-            <option value="late_fee_income">Late Fee Income</option>
-            <option value="other_charge">Other Charge</option>
-            <option value="sales_in">Sales In</option>
-        </select>
-    </div>
+<!--    <div class="mb-3">-->
+<!--        <label for="account" class="form-label">Account:</label><br>-->
+<!--        <select name="account" id="account" class="form-select">-->
+<!--            <option value="sales">Sales</option>-->
+<!--            <option value="discount">Discount</option>-->
+<!--            <option value="general_income">General Income</option>-->
+<!--            <option value="interest_income">Interest Income</option>-->
+<!--            <option value="late_fee_income">Late Fee Income</option>-->
+<!--            <option value="other_charge">Other Charge</option>-->
+<!--            <option value="sales_in">Sales In</option>-->
+<!--        </select>-->
+<!--    </div>-->
 
-    <div class="mb-3">
-        <label for="description" class="form-label">Description:</label><br>
-        <textarea name="description" id="description" class="form-control" rows="4"></textarea>
-    </div>
+<!--    <div class="mb-3">-->
+<!--        <label for="description" class="form-label">Description:</label><br>-->
+<!--        <textarea name="description" id="description" class="form-control" rows="4"></textarea>-->
+<!--    </div>-->
 
-    <div class="mb-3">
-        <label for="tax" class="form-label">Tax:</label><br>
-        <select name="tax" id="tax" class="form-select">
-            <option value="5">5%</option>
-        </select>
-    </div>
+<!--    <div class="mb-3">-->
+<!--        <label for="tax" class="form-label">Tax:</label><br>-->
+<!--        <select name="tax" id="tax" class="form-select">-->
+<!--            <option value="5">5%</option>-->
+<!--        </select>-->
+<!--    </div>-->
 
-    <button type="submit" class="btn btn-primary">Save</button>
-    <button type="button" class="btn btn-danger">Cancel</button>
-</form>
+<!--    <button type="submit" class="btn btn-primary">Save</button>-->
+<!--    <button type="button" class="btn btn-danger">Cancel</button>-->
+<!--</form>-->
 
-<!-- Bootstrap JS and other scripts go here -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="lib/chart/chart.min.js"></script>
-<script src="lib/easing/easing.min.js"></script>
-<script src="lib/waypoints/waypoints.min.js"></script>
-<script src="lib/owlcarousel/owl.carousel.min.js"></script>
-<script src="lib/tempusdominus/js/moment.min.js"></script>
-<script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-<script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+<!--&lt;!&ndash; Bootstrap JS and other scripts go here &ndash;&gt;-->
+<!--<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>-->
+<!--<script src="lib/chart/chart.min.js"></script>-->
+<!--<script src="lib/easing/easing.min.js"></script>-->
+<!--<script src="lib/waypoints/waypoints.min.js"></script>-->
+<!--<script src="lib/owlcarousel/owl.carousel.min.js"></script>-->
+<!--<script src="lib/tempusdominus/js/moment.min.js"></script>-->
+<!--<script src="lib/tempusdominus/js/moment-timezone.min.js"></script>-->
+<!--<script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>-->
 
-<!-- Template Javascript -->
-<script src="js/main.js"></script>
+<!--&lt;!&ndash; Template Javascript &ndash;&gt;-->
+<!--<script src="js/main.js"></script>-->
 
-</body>
+<!--</body>-->
 
-</html>
+<!--</html>-->
