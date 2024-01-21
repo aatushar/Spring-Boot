@@ -6,7 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.sql.Date;
 
 
 @Entity
@@ -19,7 +19,7 @@ public class Journal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private int id;
-    private Date date;
+    private Date journalDate;
     private String journalSerialNo;
     private String reference;
     private String notes;

@@ -16,7 +16,7 @@ public class JournalController {
     @Autowired
     private JournalService service;
 
-    @GetMapping("")
+    @GetMapping("/")
     public String getAllJournal(Model m) {
         List<Journal> journalList = service.getAllJournal();
         m.addAttribute("journalList", journalList);
@@ -24,19 +24,20 @@ public class JournalController {
         return "journal";
     }
 
+
+
     @GetMapping("/addjournal")
     public String addForm(Model m) {
         m.addAttribute("journal", new Journal());
-        m.addAttribute("title", "Add Journal");
-        return "addjournal";
+
+        return "journal";
     }
 
-    @RequestMapping(value = "/save" , method = RequestMethod.POST)
+    @PostMapping("/save")
     public String addJournal(@ModelAttribute Journal j) {
         service.save(j);
-        return "redirect:/journal/";
+        return "redirect:/journal/addjournal";
     }
-
     @GetMapping("/delete/{id}")
     public String deleteJournal(@PathVariable int id) {
         service.deleteJournal(id);
@@ -47,6 +48,6 @@ public class JournalController {
     public String editJournal(@PathVariable int id, Model m) {
         Journal j = service.editJournal(id);
         m.addAttribute("journal", j);
-        return "addjournal";
+        return "/journal/addjournal";
     }
 }
