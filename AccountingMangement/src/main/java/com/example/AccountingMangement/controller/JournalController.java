@@ -16,19 +16,19 @@ public class JournalController {
     @Autowired
     private JournalService service;
 
-    @GetMapping("")
-    public String getAllJournal(Model m) {
-        List<Journal> journalList = service.getAllJournal();
-        m.addAttribute("journalList", journalList);
-        m.addAttribute("title", "All Journal");
-        return "journal";
-    }
+//    @GetMapping("/")
+//    public String getAllJournal(Model m) {
+//        List<Journal> journalList = service.getAllJournal();
+//        m.addAttribute("journalList", journalList);
+//        m.addAttribute("title", "All Journal");
+//        return "journal";
+//    }
 
-    @GetMapping("/addjournal")
+    @GetMapping("/myjournal")
     public String addForm(Model m) {
         m.addAttribute("journal", new Journal());
         m.addAttribute("title", "Add Journal");
-        return "addjournal";
+        return "journal";
     }
 
     @RequestMapping(value = "/save" , method = RequestMethod.POST)
