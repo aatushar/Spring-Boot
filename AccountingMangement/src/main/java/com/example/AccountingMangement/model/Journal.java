@@ -34,4 +34,8 @@ public class Journal {
     @Column(nullable = false)
     private double credits;
 
+    @ManyToOne
+    @JoinColumn(name = "chartid")
+     public Chart chart ;
+
 }

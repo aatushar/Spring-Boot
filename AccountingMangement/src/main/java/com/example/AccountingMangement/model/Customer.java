@@ -8,19 +8,26 @@ import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.boot.autoconfigure.web.WebProperties;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Chart {
- @Id
- @GeneratedValue (strategy = GenerationType.IDENTITY)
+public class Customer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String name;
-    private double debit;
-    private double credit;
+    private String customer_type;
+    private String first_name;
+    private String last_name;
+    private String company_name;
+    private String customer_email;
+    private String customer_phone;
+    private String customer_due_amount;
+
+
+
+
 
 
 }

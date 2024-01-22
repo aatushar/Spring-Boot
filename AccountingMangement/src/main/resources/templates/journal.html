@@ -117,7 +117,7 @@
             <tr>
                 <th>ACCOUNT</th>
                 <th>DESCRIPTION</th>
-                <th>CONTACT(BDT)</th>
+                <th>CONTACT</th>
                 <th>TAX</th>
                 <th>DEBITS</th>
                 <th>CREDITS</th>
@@ -128,9 +128,10 @@
                 <td>
                     <label for="account1">Account:</label>
                     <select id="account1" name="account" th:field="*{account}" required>
-                        <option value="Cash">Cash</option>
-                        <option value="Bank">Bank</option>
-                        <option value="Fixed Asset">Fixed Asset</option>
+                        <option th:each="chat:${chartList}" th:text="${chat.name}"
+                                th:value="${chat.id}">Cash</option>
+<!--                        <option value="Bank">Bank</option>-->
+<!--                        <option value="Fixed Asset">Fixed Asset</option>-->
                     </select>
                 </td>
                 <td>
@@ -138,7 +139,7 @@
                     <input type="text" id="description1" name="description" th:field="*{description}" required>
                 </td>
                 <td>
-                    <label for="contact1">Contact(BDT):</label>
+                    <label for="contact1">Contact</label>
                     <input type="text" id="contact1" name="contact" th:field="*{contact}">
                 </td>
                 <td>
@@ -168,9 +169,7 @@
         </table>
 
 
-        <div id="totalPriceContainer">
-            <span>Total Price: </span><span id="totalPrice">0.00</span>
-        </div>
+
 
 
         <div class="btn-container">
@@ -184,70 +183,18 @@
 
 <script>
     function addNewRow() {
+        // Get reference to the table and the first row
         var table = document.getElementById("journalTable");
-        var row = table.insertRow(table.rows.length - 1); // Insert before the last row (excluding the last row with the "Add New" button)
+        var firstRow = table.rows[1].cloneNode(true); // Clone the first row
 
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-        var cell4 = row.insertCell(3);
-        var cell5 = row.insertCell(4);
-        var cell6 = row.insertCell(5);
-        var cell7 = row.insertCell(6);
+        // Clear input values in the cloned row
+        var inputs = firstRow.getElementsByTagName("input");
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].value = "";
+        }
 
-        cell1.innerHTML = '<label for="account">Account:</label>' +
-            '<select name="account" required>' +
-            '<option value="Cash">Cash</option>' +
-            '<option value="Bank">Bank</option>' +
-            '<option value="Fixed Asset">Fixed Asset</option>' +
-            '</select>';
-
-        cell2.innerHTML = '<label for="description">Description:</label>' +
-            '<input type="text" name="description" required>';
-
-        cell3.innerHTML = '<label for="contact">Contact(BDT):</label>' +
-            '<input type="text" name="contact">';
-
-        cell4.innerHTML = '<label for="tax">Tax:</label>' +
-            '<input type="number" name="tax" onchange="calculateRowTotal(this.parentNode.parentNode)">';
-
-        cell5.innerHTML = '<label for="debits">Debits:</label>' +
-            '<input type="number" name="debits" required onchange="calculateRowTotal(this.parentNode.parentNode)">';
-
-        cell6.innerHTML = '<label for="credits">Credits:</label>' +
-            '<input type="number" name="credits" required onchange="calculateRowTotal(this.parentNode.parentNode)">';
-
-        cell7.innerHTML = '<button type="button" onclick="deleteRow(this)">Less Row</button>' +
-            '<span class="totalCell">Total: <span class="totalPrice">0.00</span></span>';
-    }
-
-    function deleteRow(button) {
-        var row = button.parentNode.parentNode;
-        row.parentNode.removeChild(row);
-        calculateGrandTotal();
-    }
-
-    function calculateRowTotal(row) {
-        var tax = parseFloat(row.cells[3].querySelector("input").value) || 0;
-        var debits = parseFloat(row.cells[4].querySelector("input").value) || 0;
-        var credits = parseFloat(row.cells[5].querySelector("input").value) || 0;
-
-        var total = (debits + credits) * (1 + tax / 100);
-        row.cells[6].querySelector(".totalPrice").textContent = total.toFixed(2);
-
-        calculateGrandTotal();
-    }
-
-    function calculateGrandTotal() {
-        var rows = document.querySelectorAll("#journalTable tbody tr");
-        var grandTotal = 0;
-
-        rows.forEach(function (row) {
-            var totalCell = row.cells[6].querySelector(".totalPrice");
-            grandTotal += parseFloat(totalCell.textContent) || 0;
-        });
-
-        document.getElementById("grandTotal").textContent = grandTotal.toFixed(2);
+        // Append the cloned row to the table body
+        table.getElementsByTagName("tbody")[0].appendChild(firstRow);
     }
 </script>
 </body>
