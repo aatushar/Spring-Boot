@@ -16,20 +16,6 @@ public class JournalController {
     @Autowired
     private JournalService service;
 
-<<<<<<< HEAD
-//    @GetMapping("/")
-//    public String getAllJournal(Model m) {
-//        List<Journal> journalList = service.getAllJournal();
-//        m.addAttribute("journalList", journalList);
-//        m.addAttribute("title", "All Journal");
-//        return "journal";
-//    }
-
-    @GetMapping("/myjournal")
-    public String addForm(Model m) {
-        m.addAttribute("journal", new Journal());
-        m.addAttribute("title", "Add Journal");
-=======
     @GetMapping("/")
     public String getAllJournal(Model m) {
         List<Journal> journalList = service.getAllJournal();
@@ -44,7 +30,6 @@ public class JournalController {
     public String addForm(Model m) {
         m.addAttribute("journal", new Journal());
 
->>>>>>> 12cd8824e9fc33e2e6c1fb33b80b604fbcd16c3f
         return "journal";
     }
 
