@@ -28,14 +28,14 @@ public class Journal {
     private String account;
     private String description;
     private String contact;
-    private double tax;
+    private String tax;
     @Column(nullable = false)
-    private double debits;
+    private String debits;
     @Column(nullable = false)
-    private double credits;
+    private String credits;
 
-    @ManyToOne
-    @JoinColumn(name = "chartid")
-     public Chart chart ;
+//    @ManyToOne
+//    @JoinColumn(name = "chartid")
+//     public Chart chart ;
 
 }
