@@ -9,7 +9,12 @@
 </head>
 <body class="container mt-5">
 
+<h2 class="text-center bg-info p-2" th:if="${id==null}">Add Customer</h2>
+<h2 class="text-center bg-secondary p-2" th:if="${id!=null}">Update Customer</h2>
+
 <form  th:action="@{/customer/save}" th:object="${customer}" method="post">
+    <input type="hidden" class="form-control" th:field="*{id}">
+
     <div class="mb-3">
         <label for="customerType" class="form-label">Customer Type:</label>
         <div class="form-check">

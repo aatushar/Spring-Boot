@@ -1,10 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="${title}">Title</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Optional: Add Bootstrap JavaScript and Popper.js for dropdowns and tooltips -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-Hello from view customer
+<div class="container">
+    <h2>Customer List</h2> <!-- Add a title above the table -->
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Customer Type</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Company Name</th>
+            <th>Customer Email</th>
+            <th>Customer Phone</th>
+            <th>Customer Due Amount</th>
+            <th>Actions</th> <!-- Add a header for the Actions column -->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="i:${customerList}">
+            <td th:text="${i.customer_type}"></td>
+            <td th:text="${i.first_name}"></td>
+            <td th:text="${i.last_name}"></td>
+            <td th:text="${i.company_name}"></td>
+            <td th:text="${i.customer_email}"></td>
+            <td th:text="${i.customer_phone}"></td>
+            <td th:text="${i.customer_due_amount}"></td>
+            <td>
+                <a class="btn btn-danger" th:href="@{'/customer/delete/'+${i.id}}">
+                    Delete
+                </a>
+                <a class="btn btn-warning" th:href="@{'/customer/edit/'+${i.id}}">
+                    Update
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
