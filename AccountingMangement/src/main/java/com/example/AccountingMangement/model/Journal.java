@@ -34,8 +34,8 @@ public class Journal {
     @Column(nullable = false)
     private String credits;
 
-//    @ManyToOne
-//    @JoinColumn(name = "chartid")
-//     public Chart chart ;
+    @ManyToOne
+    @JoinColumn(name = "chartid")
+     public Chart chart ;
 
 }

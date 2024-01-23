@@ -20,6 +20,7 @@ public class ChartController {
     public String getAllCharts(Model m) {
         List<Chart> chartList = service.getAllChart();
         m.addAttribute("chartList", chartList);
+
         m.addAttribute("title", "All Charts");
         return "chart";
     }

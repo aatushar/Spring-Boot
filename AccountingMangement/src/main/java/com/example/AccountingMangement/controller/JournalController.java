@@ -1,6 +1,9 @@
 package com.example.AccountingMangement.controller;
 
+import com.example.AccountingMangement.model.Chart;
 import com.example.AccountingMangement.model.Journal;
+import com.example.AccountingMangement.repository.IChartRepo;
+import com.example.AccountingMangement.service.ChartService;
 import com.example.AccountingMangement.service.JournalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +19,12 @@ public class JournalController {
     @Autowired
     private JournalService service;
 
+    @Autowired
+    private IChartRepo repo;
+
+    @Autowired
+    private ChartService chartService;
+
     @GetMapping("/")
     public String getAllJournal(Model m) {
         List<Journal> journalList = service.getAllJournal();
@@ -24,12 +33,11 @@ public class JournalController {
         return "journal";
     }
 
-
-
     @GetMapping("/addjournal")
     public String addForm(Model m) {
+        List<Chart> chartList = chartService.getAllChart();
+        m.addAttribute("chartList", chartList);
         m.addAttribute("journal", new Journal());
-
         return "journal";
     }
 
@@ -38,6 +46,7 @@ public class JournalController {
         service.save(j);
         return "redirect:/journal/addjournal";
     }
+
     @GetMapping("/delete/{id}")
     public String deleteJournal(@PathVariable int id) {
         service.deleteJournal(id);

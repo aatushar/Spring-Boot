@@ -21,19 +21,20 @@ public class CustomerController {
         List<Customer> customerList = service.getAllCustomer();
         m.addAttribute("customerList", customerList);
         m.addAttribute("title", "All Customers");
-        return "addcustomer";
+        return "viewCustomer";
     }
 
     @GetMapping("/addcustomer")
-    public String addCustomerForm(Model m) {
+    public String addForm(Model m) {
         m.addAttribute("customer", new Customer());
-        return "addcustomer";
+        m.addAttribute("title", "Add Customer");
+        return "addCustomer";
     }
 
-    @PostMapping("/save")
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String addCustomer(@ModelAttribute Customer c) {
         service.save(c);
-        return "redirect:/customer/addcustomer";
+        return "redirect:/customer/";
     }
 
     @GetMapping("/delete/{id}")
@@ -46,6 +47,6 @@ public class CustomerController {
     public String editCustomer(@PathVariable int id, Model m) {
         Customer c = service.editCustomer(id);
         m.addAttribute("customer", c);
-        return "/customer/addcustomer";
+        return "addCustomer";
     }
 }

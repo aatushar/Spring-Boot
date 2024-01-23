@@ -19,8 +19,8 @@ public class Chart {
  @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private double debit;
-    private double credit;
+    private String debit;
+    private String credit;
 
 
 }
