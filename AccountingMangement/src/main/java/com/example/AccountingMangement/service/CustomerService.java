@@ -18,6 +18,7 @@ public class CustomerService {
 
     }
     public List<Customer> getAllCustomer(){
+
         return repo.findAll();
     }
 
@@ -27,6 +28,7 @@ public class CustomerService {
     }
 
     public Customer editCustomer(int id){
+
         return repo.findById(id).get();
     }
 }
