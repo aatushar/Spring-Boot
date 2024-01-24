@@ -128,7 +128,7 @@
                 <td>
                     <label for="account1">Account:</label>
                     <select id="account1" name="account" th:field="*{account}" required>
-                        <option th:each="chat:${chartList}" th:text="${chat.name}"
+                        <option th:each="chat:${chartList}" th:text="${chat.account_type}"
                                 th:value="${chat.id}">Cash</option>
 <!--                        <option value="Bank">Bank</option>-->
 <!--                        <option value="Fixed Asset">Fixed Asset</option>-->

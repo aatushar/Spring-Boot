@@ -17,7 +17,8 @@ public class ChartService {
         repo.save(c);
     }
     public List<Chart> getAllChart(){
-        return  repo.findAll();
+        return
+                repo.findAll();
     }
 
     public void deleteChart(int id){
@@ -27,6 +28,7 @@ public class ChartService {
     }
 
     public Chart editChart(int id){
+
         return repo.findById(id).get();
     }
 }

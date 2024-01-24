@@ -17,10 +17,12 @@ import org.springframework.boot.autoconfigure.web.WebProperties;
 public class Chart {
  @Id
  @GeneratedValue (strategy = GenerationType.IDENTITY)
+
     private Integer id;
-    private String name;
-    private String debit;
-    private String credit;
+    private String debit_credit;
+    private String account_type ;
+
+
 
 
 }
