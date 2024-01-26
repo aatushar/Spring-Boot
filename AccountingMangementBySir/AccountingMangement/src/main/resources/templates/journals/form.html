@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create/Edit Journal</title>
+</head>
+<body>
+<h1 th:if="${editMode}">Edit Journal</h1>
+<h1 th:unless="${editMode}">Create New Journal</h1>
+
+<form th:action="${editMode} ? @{/journals/edit/{id}(id=${journal.id})} : @{/journals/create}" method="post">
+    <label for="entryDescription">Entry Description:</label>
+    <input type="text" id="entryDescription" name="entryDescription" th:value="${journal.entryDescription}" required>
+
+    <label for="debitAmount">Debit Amount:</label>
+    <input type="text" id="debitAmount" name="debitAmount" th:value="${journal.debitAmount}" required>
+
+    <label for="creditAmount">Credit Amount:</label>
+    <input type="text" id="creditAmount" name="creditAmount" th:value="${journal.creditAmount}" required>
+
+    <label for="debitChartOfAccount">Debit Chart of Account:</label>
+    <select id="debitChartOfAccount" name="debitChartOfAccountId" required>
+        <option th:each="chartOfAccount : ${chartOfAccounts}" th:value="${chartOfAccount.id}"
+                th:text="${chartOfAccount.accountName}"></option>
+    </select>
+
+    <label for="creditChartOfAccount">Credit Chart of Account:</label>
+    <select id="creditChartOfAccount" name="creditChartOfAccountId" required>
+        <option th:each="chartOfAccount : ${chartOfAccounts}" th:value="${chartOfAccount.id}"
+                th:text="${chartOfAccount.accountName}"></option>
+    </select>
+
+    <button type="submit">Save</button>
+</form>
+
+<a th:href="@{/journals}">Back to Journals</a>
+</body>
+</html>

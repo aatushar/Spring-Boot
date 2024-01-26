@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ledgers</title>
+</head>
+<body>
+<h1>Ledgers</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Chart of Account</th>
+        <th>Transaction Date</th>
+        <th>Debit Amount</th>
+        <th>Credit Amount</th>
+        <th>Debit Balance</th>
+        <th>Credit Balance</th>
+        <th>Cumulative Balance</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <!-- ... existing HTML ... -->
+
+    <tbody>
+    <!-- Initialize cumulative balances -->
+    <tr th:with="cumulativeDebitBalance=0, cumulativeCreditBalance=0"/>
+
+    <tr th:each="ledger, rowStat : ${ledgers}" th:with="debitBalance=${ledger.debitAmount - ledger.creditAmount}, creditBalance=${ledger.creditAmount - ledger.debitAmount}">
+        <!-- Update cumulative balances for each row -->
+    <tr th:with="cumulativeDebitBalance=${cumulativeDebitBalance + (debitBalance != null ? debitBalance : 0)}, cumulativeCreditBalance=${cumulativeCreditBalance + (creditBalance != null ? creditBalance : 0)}"/>
+
+    <td th:text="${ledger.id}"></td>
+    <td th:text="${ledger.chartOfAccount.accountName}"></td>
+    <td th:text="${#dates.format(ledger.transactionDate, 'yyyy-MM-dd')}"></td>
+    <td th:text="${ledger.debitAmount}"></td>
+    <td th:text="${ledger.creditAmount}"></td>
+    <td th:text="${#numbers.formatDecimal(debitBalance, 2, 'COMMA', 1, 'POINT')}"></td>
+    <td th:text="${#numbers.formatDecimal(creditBalance, 2, 'COMMA', 1, 'POINT')}"></td>
+    <td th:text="${#numbers.formatDecimal(cumulativeDebitBalance, 2, 'COMMA', 1, 'POINT')}"></td>
+    <td>
+        <a th:href="@{/ledgers/{id}(id=${ledger.id})}">View</a>
+        <a th:href="@{/ledgers/edit/{id}(id=${ledger.id})}">Edit</a>
+        <a th:href="@{/ledgers/delete/{id}(id=${ledger.id})}">Delete</a>
+    </td>
+    </tr>
+    </tbody>
+
+    <!-- ... existing HTML ... -->
+
+</table>
+
+<a th:href="@{/ledgers/create}">Create New Ledger</a>
+</body>
+</html>

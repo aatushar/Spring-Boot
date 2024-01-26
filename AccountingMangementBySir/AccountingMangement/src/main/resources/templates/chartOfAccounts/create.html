@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create/Edit Chart of Account</title>
+  <!-- Add Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <style>
+    table {
+      width: 50%;
+      margin-top: 20px;
+    }
+
+    table, th, td {
+      border: 1px solid black;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th b {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1 th:if="${editMode}" class="mt-4">Edit Chart of Account</h1>
+  <h1 th:unless="${editMode}" class="mt-4">Create New Chart of Account</h1>
+
+  <form th:action="${editMode} ? @{/chart-of-accounts/edit/{id}(id=${chartOfAccount.id})} : @{/chart-of-accounts/create}" method="post">
+    <table class="table table-bordered mt-3">
+      <tr>
+        <th><b>Account Code:</b></th>
+        <td><input type="text" id="accountCode" name="accountCode" th:value="${chartOfAccount.accountCode}" required class="form-control"></td>
+      </tr>
+      <tr>
+        <th><b>Account Name:</b></th>
+        <td><input type="text" id="accountName" name="accountName" th:value="${chartOfAccount.accountName}" required class="form-control"></td>
+      </tr>
+    </table>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+
+  <a th:href="@{/chart-of-accounts}" class="btn btn-secondary mt-3">Back to Chart of Accounts</a>
+</div>
+
+<!-- Add Bootstrap JS and Popper.js -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

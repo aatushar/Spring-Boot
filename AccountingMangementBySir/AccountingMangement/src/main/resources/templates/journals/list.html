@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journals</title>
+</head>
+<body>
+<h1>Journals</h1>
+
+<!-- Display success or error messages if any -->
+<div th:if="${successMessage}" class="success-message" th:text="${successMessage}"></div>
+<div th:if="${errorMessage}" class="error-message" th:text="${errorMessage}"></div>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Entry Description</th>
+        <th>Debit Amount</th>
+        <th>Credit Amount</th>
+        <th>Debit Chart of Account</th>
+        <th>Credit Chart of Account</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="journal : ${journals}">
+        <td th:text="${journal.id}"></td>
+        <td th:text="${journal.entryDescription}"></td>
+        <td th:text="${journal.debitAmount}"></td>
+        <td th:text="${journal.creditAmount}"></td>
+        <td th:if="${journal.debitChartOfAccount != null}" th:text="${journal.debitChartOfAccount.accountName}"></td>
+        <td th:if="${journal.creditChartOfAccount != null}" th:text="${journal.creditChartOfAccount.accountName}"></td>
+        <td>
+            <a th:href="@{/journals/{id}(id=${journal.id})}">View</a>
+            <a th:href="@{/journals/edit/{id}(id=${journal.id})}">Edit</a>
+            <a th:href="@{/journals/delete/{id}(id=${journal.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<a th:href="@{/journals/create}">Create New Journal</a>
+</body>
+</html>

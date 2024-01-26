@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Ledger</title>
+</head>
+<body>
+<h1>Create Ledger</h1>
+
+<form th:action="@{/ledgers/create}" method="post" th:object="${ledger}">
+    <label for="chartOfAccount">Chart of Account:</label>
+    <select id="chartOfAccount" name="chartOfAccount.id" th:field="*{chartOfAccount.id}" required>
+        <option th:each="account : ${chartOfAccounts}" th:value="${account.id}" th:text="${account.accountName}"></option>
+    </select>
+
+    <label for="transactionDate">Transaction Date:</label>
+    <input type="date" id="transactionDate" name="transactionDate" th:field="*{transactionDate}" required>
+
+    <label for="debitAmount">Debit Amount:</label>
+    <input type="text" id="debitAmount" name="debitAmount" th:field="*{debitAmount}" required>
+
+    <label for="creditAmount">Credit Amount:</label>
+    <input type="text" id="creditAmount" name="creditAmount" th:field="*{creditAmount}" required>
+
+    <button type="submit">Save</button>
+</form>
+
+<a th:href="@{/ledgers}">Back to Ledgers</a>
+</body>
+</html>

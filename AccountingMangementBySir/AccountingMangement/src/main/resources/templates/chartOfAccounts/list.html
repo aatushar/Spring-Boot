@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart of Accounts</title>
+</head>
+<body>
+<h1>Chart of Accounts</h1>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Account Code</th>
+        <th>Account Name</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="account : ${chartOfAccounts}">
+        <td th:text="${account.id}"></td>
+        <td th:text="${account.accountCode}"></td>
+        <td th:text="${account.accountName}"></td>
+        <td>
+            <a th:href="@{/chart-of-accounts/{id}(id=${account.id})}">View</a>
+            <a th:href="@{/chart-of-accounts/edit/{id}(id=${account.id})}">Edit</a>
+            <a th:href="@{/chart-of-accounts/delete/{id}(id=${account.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<a th:href="@{/chart-of-accounts/create}">Create New Account</a>
+</body>
+</html>

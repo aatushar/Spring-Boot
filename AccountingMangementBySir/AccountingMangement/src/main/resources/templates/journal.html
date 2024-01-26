@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        form, table {
+            width: 60%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form label, form input, form textarea, form select {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        select, textarea, input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        #addRowBtn {
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+        }
+
+        #lessRowBtn {
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+
+    <!--    <h2 class="text-center bg-info p-2" th:if="${id==null}">Add Journal</h2>-->
+    <!--    <h2 class="text-center bg-secondary p-2" th:if="${id!=null}">Update Journal</h2>-->
+
+    <form th:action="@{/journal/save}"   th:object="${journal}" method="post"><!--        <input type="hidden" class="form-control" th:field="*{id}">-->
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="journalDate" th:field="*{journalDate}" required >
+
+        <label for="journalSerial">Journal Serial No:</label>
+        <input type="text" id="journalSerial" name="journalSerial" th:field="*{journalSerialNo}" required>
+
+        <label for="reference">Reference:</label>
+        <input type="text" id="reference" name="reference" th:field="*{reference}">
+
+        <label for="notes">Notes:</label>
+        <textarea id="notes" name="notes" rows="4" cols="50" th:field="*{notes}"></textarea>
+
+        <label for="cashJournal">Cash based Journal:</label>
+        <input type="checkbox" id="cashJournal" name="cashJournal" th:field="*{cashBasedJournal}">
+
+        <label for="transactionType">Transaction Type:</label>
+        <select id="transactionType" name="transactionType" th:field="*{transactionType}">
+            <option value="BDT">BDT - Bangladeshi Taka</option>
+            <option value="USD">USD - United States Dollar</option>
+            <option value="INR">Indian Rupees</option>
+        </select>
+
+        <!-- Table Starts -->
+        <h2>Journal Table</h2>
+
+        <table border="1" id="journalTable">
+            <thead>
+            <tr>
+                <th>ACCOUNT</th>
+                <th>DESCRIPTION</th>
+                <th>CONTACT</th>
+                <th>TAX</th>
+                <th>DEBITS</th>
+                <th>CREDITS</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <label for="account1">Account:</label>
+                    <select id="account1" name="account" th:field="*{account}" required>
+                        <option th:each="chat:${chartList}" th:text="${chat.name}"
+                                th:value="${chat.id}">Cash</option>
+<!--                        <option value="Bank">Bank</option>-->
+<!--                        <option value="Fixed Asset">Fixed Asset</option>-->
+                    </select>
+                </td>
+                <td>
+                    <label for="description1">Description:</label>
+                    <input type="text" id="description1" name="description" th:field="*{description}" required>
+                </td>
+                <td>
+                    <label for="contact1">Contact</label>
+                    <input type="text" id="contact1" name="contact" th:field="*{contact}">
+                </td>
+                <td>
+                    <label for="tax1">TaX (%):</label>
+                    <input type="text" id="tax1" name="tax" th:field="*{tax}" >
+                </td>
+                <td>
+                    <label for="debits1">Debits:</label>
+                    <input type="text" id="debits1" name="debits" th:field="*{debits}" >
+                </td>
+                <td>
+                    <label for="credits1">Credits:</label>
+                    <input type="text" id="credits1" name="credits" th:field="*{credits}" >
+                </td>
+            </tr>
+            </tbody>
+
+            <tfoot>
+            <tr>
+                <td colspan="6">
+                    <button type="button" onclick="addNewRow()">Add New</button>
+                </td>
+            </tr>
+            </tfoot>
+
+
+        </table>
+
+
+
+
+
+        <div class="btn-container">
+            <button type="submit">Submit</button>
+        </div>
+
+
+
+    </form>
+</div>
+
+<script>
+    function addNewRow() {
+        // Get reference to the table and the first row
+        var table = document.getElementById("journalTable");
+        var firstRow = table.rows[1].cloneNode(true); // Clone the first row
+
+        // Clear input values in the cloned row
+        var inputs = firstRow.getElementsByTagName("input");
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].value = "";
+        }
+
+        // Append the cloned row to the table body
+        table.getElementsByTagName("tbody")[0].appendChild(firstRow);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${title}">Title</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Optional: Add Bootstrap JavaScript and Popper.js for dropdowns and tooltips -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Selling Price</th>
+            <th>Account</th>
+            <th>Description</th>
+            <th>Tax</th>
+            <th>Actions</th> <!-- Add a header for the Actions column -->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="i:${itemList}">
+            <td th:text="${i.type}"></td>
+            <td th:text="${i.name}"></td>
+            <td th:text="${i.selling_price}"></td>
+            <td th:text="${i.account}"></td>
+            <td th:text="${i.description}"></td>
+            <td th:text="${i.tax}"></td>
+            <td>
+                <a class="btn btn-danger" th:href="@{'/item/delete/'+${i.id}}">
+                    Delete
+                </a>
+                <a class="btn btn-warning" th:href="@{'/item/edit/'+${i.id}}">
+                    Update
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
