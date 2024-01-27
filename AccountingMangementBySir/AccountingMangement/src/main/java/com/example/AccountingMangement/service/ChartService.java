@@ -19,6 +19,9 @@ public class ChartService {
         return  repo.findAll();
     }
 
+
+
+
     public void deleteChart(long id){
         repo.deleteById(id);
 
