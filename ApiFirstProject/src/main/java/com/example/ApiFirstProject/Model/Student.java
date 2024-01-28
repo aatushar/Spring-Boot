@@ -20,9 +20,9 @@ public class Student {
   private String name;
   private  String department;
 
-  @ManyToOne
-  @JoinColumn ( name = "seudent_id")
-  private  Student student;
+//  @ManyToOne
+//  @JoinColumn ( name = "seudent_id")
+//  private  Student student;
 
 
 }

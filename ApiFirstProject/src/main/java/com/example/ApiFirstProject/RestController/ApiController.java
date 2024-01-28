@@ -19,35 +19,38 @@ public class ApiController {
     StudentRepo studentRepo;
 
     @GetMapping("/student")
-    public List<Student> allStudent(){
+    public List<Student> allStudent() {
         return studentRepo.findAll();
     }
- @PostMapping("/student")
-    public Student svaeStudent(@RequestBody Student student){
-       return studentRepo.save(student);
- }
- @DeleteMapping("/student/{id}")
-    public ResponseEntity<String> delete (@PathVariable("id") int id){
-   boolean exist = studentRepo.existsById(id);
-   if(exist){
-       studentRepo.deleteById(id);
-       return new ResponseEntity<>("Student is deleated", HttpStatus.OK);
-   }
-   return new ResponseEntity<>("Student is not exist" , HttpStatus.BAD_REQUEST);
 
- }
- @PutMapping("/student/{id}")
-    public ResponseEntity<String> update(@PathVariable("id") int id, @RequestBody Student student){
-       boolean exist = studentRepo.existsById(id);
-       if (exist){
-           Student student1 = studentRepo.getById(id);
-           student1.setName(student.getName());
-           student1.setId(id);
-           studentRepo.save(student);
-           return  new ResponseEntity<>("Student is updated", HttpStatus.OK);
+    @PostMapping("/student")
+    public Student svaeStudent(@RequestBody Student student) {
+        return studentRepo.save(student);
+    }
+
+    @DeleteMapping("/student/{id}")
+    public ResponseEntity<String> delete(@PathVariable("id") int id) {
+        boolean exist = studentRepo.existsById(id);
+        if (exist) {
+            studentRepo.deleteById(id);
+            return new ResponseEntity<>("Student is deleated", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("Student is not exist", HttpStatus.BAD_REQUEST);
+
+    }
+
+    @PutMapping("/student/{id}")
+    public ResponseEntity<String> update(@PathVariable("id") int id, @RequestBody Student student) {
+        boolean exist = studentRepo.existsById(id);
+        if (exist) {
+            Student student1 = studentRepo.getById(id);
+            student1.setName(student.getName());
+            student1.setId(id);
+            studentRepo.save(student);
+            return new ResponseEntity<>("Student is updated", HttpStatus.OK);
 
 
-       }
-       return new ResponseEntity<>("Student is not Exist", HttpStatus.BAD_REQUEST);
- }
+        }
+        return new ResponseEntity<>("Student is not Exist", HttpStatus.BAD_REQUEST);
+    }
 }
