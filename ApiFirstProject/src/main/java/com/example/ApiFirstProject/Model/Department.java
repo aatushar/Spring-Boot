@@ -23,7 +23,7 @@ public class Department {
 
 
 
-//    public Department(String dName) {
-//        this.dName = dName;
-//    }
+    public Department(String dName) {
+        this.dName = dName;
+    }
 }
