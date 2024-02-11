@@ -2,7 +2,6 @@ package com.example.AccountingMangement.service;
 
 
 import com.example.AccountingMangement.model.Chart;
-import com.example.AccountingMangement.model.Item;
 import com.example.AccountingMangement.repository.IChartRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,8 +12,9 @@ import java.util.List;
 public class ChartService {
     @Autowired
     private IChartRepo repo;
-    public void save(Chart c){
+    public Chart save(Chart c){
         repo.save(c);
+        return c;
     }
     public List<Chart> getAllChart(){
         return
