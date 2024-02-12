@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Journal Entries</title>
+</head>
+<body>
+<h1>Journal Entries</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Date</th>
+        <th>Description</th>
+        <th>Account 1</th>
+        <th>Account 2</th>
+        <th>Amount</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="entry : ${
+    \
+    }">
+        <td th:text="${entry.date}"></td>
+        <td th:text="${entry.description}"></td>
+        <td th:text="${entry.account1}"></td>
+        <td th:text="${entry.account2}"></td>
+        <td th:text="${entry.amount}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
