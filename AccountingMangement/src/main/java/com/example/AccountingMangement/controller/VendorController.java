@@ -11,14 +11,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/vendor")
-public class
-
-
-
-
-
-
-VendorController {
+public class VendorController {
 
     @Autowired
     private VendorService service;
@@ -27,21 +20,22 @@ VendorController {
     public String getAllVendors(Model m) {
         List<Vendor> vendorList = service.getAllVendors();
         m.addAttribute("vendorList", vendorList);
-
         m.addAttribute("title", "All Vendors");
-        return "addvendor"; // Assuming you have an addVendor.html template
+        return "viewVendor";
     }
+
 
     @GetMapping("/addvendor")
     public String addForm(Model m) {
         m.addAttribute("vendor", new Vendor());
-        return "addvendor"; // Assuming you have an addVendor.html template
+        m.addAttribute("title", "Add Vendor");
+        return "addVendor";
     }
 
-    @PostMapping("/save")
-    public String addVendor(@ModelAttribute Vendor vendor) {
-        service.save(vendor);
-        return "redirect:/vendor/addvendor";
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public String addVendor(@ModelAttribute Vendor v) {
+        service.save(v);
+        return "redirect:/vendor/";
     }
 
     @GetMapping("/delete/{id}")
@@ -52,8 +46,8 @@ VendorController {
 
     @GetMapping("/edit/{id}")
     public String editVendor(@PathVariable int id, Model m) {
-        Vendor vendor = service.editVendor(id);
-        m.addAttribute("vendor", vendor);
-        return "addvendor/addvendor"; // Assuming you have an addvendor.html template
+        Vendor v = service.editVendor(id);
+        m.addAttribute("vendor", v);
+        return "addVendor";
     }
 }
