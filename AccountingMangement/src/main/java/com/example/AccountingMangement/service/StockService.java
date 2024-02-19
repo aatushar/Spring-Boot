@@ -19,7 +19,7 @@ public class StockService {
     public void addGoodPurchase(GoodPurchase goodPurchase) {
         Stock existingStock = stockRepository.findByProductName(goodPurchase.getProductName());
         if (existingStock != null) {
-            existingStock.setQuantity(existingStock.getQuantity() + goodPurchase.getQuantity());
+//            existingStock.setQuantity(existingStock.getQuantity() + goodPurchase.getQuantity());
         } else {
             Stock newStock = new Stock();
             newStock.setProductName(goodPurchase.getProductName());
@@ -32,7 +32,7 @@ public class StockService {
     public void removeGoodSales(GoodSales goodSales) {
         Stock existingStock = stockRepository.findByProductName(goodSales.getProductName());
         if (existingStock != null) {
-            existingStock.setQuantity(existingStock.getQuantity() - goodSales.getQuantity());
+//            existingStock.setQuantity(existingStock.getQuantity() - goodSales.getQuantity());
         }
     }
 
