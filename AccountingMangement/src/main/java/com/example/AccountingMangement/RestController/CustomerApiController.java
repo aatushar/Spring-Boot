@@ -1,4 +1,4 @@
-package com.example.AccountingMangement.controller;
+package com.example.AccountingMangement.RestController;
 
 import com.example.AccountingMangement.model.Customer;
 import com.example.AccountingMangement.service.CustomerService;
