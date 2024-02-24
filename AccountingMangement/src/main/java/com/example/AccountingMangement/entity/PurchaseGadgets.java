@@ -18,8 +18,10 @@ public class PurchaseGadgets {
     private String name;
     private int quantity;
     private double unitPrice;
+    private double totalPrice;
+//    private Date productionDate;
+//    private Date expiryDate;
     private Date productionDate;
-    private Date expiryDate;
 
     @ManyToOne
     @JoinColumn(
@@ -34,23 +36,25 @@ public class PurchaseGadgets {
     BrandName manufacturer;
 
 
-    public PurchaseGadgets(String name, int quantity, double unitPrice, Date productionDate, Date expiryDate, GadgetType generic, BrandName manufacturer) {
+    public PurchaseGadgets(String name, int quantity, double unitPrice, double totalPrice, Date productionDate,  GadgetType generic, BrandName manufacturer) {
         this.name = name;
         this.quantity = quantity;
         this.unitPrice = unitPrice;
+        this.totalPrice = totalPrice;
         this.productionDate = productionDate;
-        this.expiryDate = expiryDate;
+//        this.expiryDate = expiryDate;
         this.generic = generic;
         this.manufacturer = manufacturer;
     }
 
-    public PurchaseGadgets(int id, String name, int quantity, double unitPrice, Date productionDate, Date expiryDate, GadgetType generic, BrandName manufacturer) {
+    public PurchaseGadgets(int id, String name, int quantity, double unitPrice,double totalPrice, Date productionDate,  GadgetType generic, BrandName manufacturer) {
         this.id = id;
         this.name = name;
         this.quantity = quantity;
         this.unitPrice = unitPrice;
         this.productionDate = productionDate;
-        this.expiryDate = expiryDate;
+        this.totalPrice = totalPrice;
+//        this.expiryDate = expiryDate;
         this.generic = generic;
         this.manufacturer = manufacturer;
     }
