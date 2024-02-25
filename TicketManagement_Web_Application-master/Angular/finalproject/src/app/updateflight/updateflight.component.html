@@ -1,0 +1,125 @@
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-3" align="left">
+
+
+        <!-- <form (submit)="saveStudent()"> -->
+        <form (submit)="updateFlight()">
+            <h2 align="center">Update Flight</h2>
+            <div class="mb-2">
+                <label for="id" class="form-label">ID</label>
+                <input type="text" class="form-control" id="id" aria-describedby="n" name="id" [(ngModel)]="id"
+                    #name1="ngModel">
+                <ul>
+                    <li *ngIf="name1.errors?.['required']"> empty is not allowed</li>
+                </ul>
+            </div>
+            <div class="mb-2">
+                <label for="Name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" aria-describedby="n" name="name" [(ngModel)]="name"
+                    #name1="ngModel">
+                <ul>
+                    <li *ngIf="name1.errors?.['required']"> empty is not allowed</li>
+                </ul>
+            </div>
+            <div class="mb-2">
+                <label for="number" class="form-label">number</label>
+                <input type="text" class="form-control" id="number" aria-describedby="n" name="number"
+                    [(ngModel)]="number" #number1="ngModel">
+                <ul>
+                    <li *ngIf="number1.errors?.['required']"> empty is not allowed</li>
+                </ul>
+            </div>
+            <div class="mb-2">
+                <label for="departure_time" class="form-label">Departure Time</label>
+                <input type="time" class="form-control" id="departure_time" aria-describedby="n" name="departure_time"
+                    [(ngModel)]="departure_time" #departuretime1="ngModel">
+                <ul>
+                    <li *ngIf="departuretime1.errors?.['required']"> empty is not allowed</li>
+                </ul>
+            </div>
+            <div class="mb-2">
+                <label for="arrival_time" class="form-label">Arrival Time</label>
+                <input type="time" class="form-control" id="arrival_time" aria-describedby="n" name="arrival_time"
+                    [(ngModel)]="arrival_time" #arrivaltime1="ngModel">
+                <ul>
+                    <li *ngIf="arrivaltime1.errors?.['required']"> empty is not allowed</li>
+                </ul>
+            </div>
+            <div class="mb-2">
+                <label for="flying_date" class="form-label">Flying Date</label>
+                <input type="date" class="form-control" id="flying_date" aria-describedby="n" name="flying_date"
+                    [(ngModel)]="flying_date" #flyingdate1="ngModel">
+                <ul>
+                    <li *ngIf="flyingdate1.errors?.['required']"> empty is not allowed</li>
+                </ul>
+            </div>
+            <div class="mb-2">
+                <label for="from_city" class="form-label">From City</label>
+                <select class="form-control" id="from_city" name="from_city" [(ngModel)]="from_city">
+                    <option>Dhaka</option>
+                    <option>Rajshahi</option>
+                    <option>India</option>
+                    <option>USA</option>
+                    <option>Chittagong</option>
+                    <option>Barishal</option>
+                    <option>Thiland</option>
+                </select>
+            </div>
+            <div class="mb-2">
+                <label for="to_city" class="form-label">To City</label>
+                <select class="form-control" id="to_city" name="to_city" [(ngModel)]="to_city">
+                    <option>Dhaka</option>
+                    <option>Rajshahi</option>
+                    <option>India</option>
+                    <option>USA</option>
+                    <option>Chittagong</option>
+                    <option>Barishal</option>
+                    <option>Thiland</option>
+                </select>
+            </div>
+            <div class="mb-2">
+                <label for="catagory" class="form-label">Catagory</label>
+                <select class="form-control" id="catagory" name="catagory" [(ngModel)]="catagory">
+                    <option>International</option>
+                    <option>Domestic</option>
+                </select>
+            </div>
+            <div class="mb-2">
+                <label for="economy_price" class="form-label">Economy price</label>
+                <input type="text" class="form-control" id="economy_price" name="economy_price"
+                    [(ngModel)]="economy_price">
+            </div>
+            <div class="mb-2">
+                <label for="business_price" class="form-label">Business price</label>
+                <input type="text" class="form-control" id="business_price" name="business_price"
+                    [(ngModel)]="business_price">
+            </div>
+            <div class="mb-2">
+                <label for="photo" class="form-label">photo</label>
+                <input type="text" class="form-control" id="photo" name="photo" [(ngModel)]="photo">
+            </div>
+            <div class="mb-2">
+                <label for="offered" class="form-label">Package</label>
+                <select class="form-control" id="offered" name="offered" [(ngModel)]="offered">
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+            </div>
+            <div class="mb-2">
+                <label for="description" class="form-label">Description</label>
+                <select class="form-control" id="description" name="description" [(ngModel)]="description">
+                    <option>Eid Offer</option>
+                    <option>Puja offer</option>
+                    <option>valentines day offer</option>
+                    <option>Boishakhi offer</option>
+                </select>
+            </div>
+            <button type="submit" class=" form-control btn btn-success">Update</button>
+            <button class=" form-control btn btn-warning">Reset</button>
+
+            <!-- <button type="submit" class=" form-control btn btn-warning">Add Student</button> -->
+            <!-- <button  class=" form-control btn btn-warning" (click)="deleteSt()">Delete Student</button> -->
+        </form>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+<!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="\Home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="\About">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="\Searchflight">Search Flight</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="\Login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="\Registration">Registration</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="\Contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="\Feedback">Feedback</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="backgroundaddimage d-flex justify-content-center align-items-center">
+    <form>
+      <label class="form-label text-white" for="from">From City</label>
+      <select id="from" name="from_city" [(ngModel)]="from_city">
+        <option aria-placeholder="select destination">Select Destination</option>
+        <option>Dhaka</option>
+        <option>Khulna</option>
+        <option>Rajshahi</option>
+        <option>Chittagong</option>
+      </select>
+      <label class="form-label text-white" for="from">To city</label>
+      <select  id="from" name="to_city" [(ngModel)]="to_city">>
+        <option aria-placeholder="select destination">Select Destination</option>
+        <option>Dhaka</option>
+        <option>Khulna</option>
+        <option>Rajshahi</option>
+        <option>Chittagong</option>
+      </select>
+      <form>
+      <label class="form-label text-white" for="id">Flying Date</label>
+      <input type="date" class="" id="flying_date" name="flying_date" [(ngModel)]="flying_date">
+      <button type="submit" class="btnmargin" (click)="searchid()">Search</button>
+    </form>
+
+
+
+ -->
+
+
+
+
+
+ <nav class="navbar">
+    <ul>
+        <li><a href="\Home">Home</a></li>
+        <li><a href="\About">About</a></li>
+        <li><a href="\Searchflight">Search Flight</a></li>
+        <li><a href="\Login">Login</a></li>
+        <li><a href="\Registration">Registration</a></li>
+        <li><a href="\Contact">Contact</a></li>
+        <li><a href="\Feedback">Feedback</a></li>
+    </ul>
+</nav>
+
+<!-- Form Section -->
+<div class="backgroundaddimage">
+    <div class="form-container">
+        <form>
+            <div class="mt-3">
+                <label for="from_city" class="form-label">From City:</label>
+                <select [(ngModel)]="from_city" id="from_city" name="from_city">
+                  <option *ngFor="let s of fromcitylist" [value]="s">{{s}}</option>
+                </select></div>
+                
+                <div class="mt-3">
+                  <label for="to_city" class="form-label">To City:</label>
+                  <select [(ngModel)]="to_city" id="to_city" name="to_city">
+                    <option *ngFor="let s of tocitylist" [value]="s">{{s}}</option>
+                  </select></div>
+
+            <label class="form-label" for="flying_date">Flying Date</label>
+            <input type="date" id="flying_date" name="flying_date" [(ngModel)]="flying_date">
+
+            <button type="submit" (click)="searchid()">Search</button>
+        </form>
+    </div>
+</div>

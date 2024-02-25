@@ -1,0 +1,89 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 form-container">
+            <form>
+                <h2>Add New Flight Details</h2>
+                <div class="form-group">
+                    <label for="id" class="form-label">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" [(ngModel)]="id" required>
+                </div>
+                <div class="form-group">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="number" class="form-label">Number</label>
+                    <input type="text" class="form-control" id="number" name="number" [(ngModel)]="number" required>
+                </div>
+                <div class="form-group">
+                    <label for="departure_time" class="form-label">Departure Time</label>
+                    <input type="time" class="form-control" id="departure_time" name="departure_time" [(ngModel)]="departure_time" required>
+                </div>
+                <div class="form-group">
+                    <label for="arrival_time" class="form-label">Arrival Time</label>
+                    <input type="time" class="form-control" id="arrival_time" name="arrival_time" [(ngModel)]="arrival_time" required>
+                </div>
+                <div class="form-group">
+                    <label for="flying_date" class="form-label">Flying Date</label>
+                    <input type="date" class="form-control" id="flying_date" name="flying_date" [(ngModel)]="flying_date" required>
+                </div>
+                <div class="form-group">
+                    <label for="return_date" class="form-label">Return Date</label>
+                    <input type="date" class="form-control" id="return_date" name="return_date" [(ngModel)]="return_date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="from_city" class="form-label">From city</label>
+                    <select class="form-control" id="from_city" name="from_city" [(ngModel)]="from_city">
+                        <option value="">Select City</option>
+                        <option value="Dhaka">Dhaka</option>
+                        <option value="Rajshahi">Rajshahi</option>
+                        <option value="India">India</option>
+                        <option value="USA">USA</option>
+                        <option value="Chittagong">Chittagong</option>
+                        <option value="Barishal">Barishal</option>
+                        <option value="Thiland">Thiland</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="to_city" class="form-label">To city</label>
+                    <select class="form-control" id="to_city" name="to_city" [(ngModel)]="to_city">
+                        <option value="">Select City</option>
+                        <option value="Dhaka">Dhaka</option>
+                        <option value="Rajshahi">Rajshahi</option>
+                        <option value="India">India</option>
+                        <option value="USA">USA</option>
+                        <option value="Chittagong">Chittagong</option>
+                        <option value="Barishal">Barishal</option>
+                        <option value="Thiland">Thiland</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="catagory" class="form-label">Catagory</label>
+                    <select class="form-control" id="catagory" name="catagory" [(ngModel)]="catagory">
+                        <option value="International">International</option>
+                        <option value="Domestic">Domestic</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="economy_price" class="form-label">Economy price</label>
+                    <input type="text" class="form-control" id="economy_price" name="economy_price" [(ngModel)]="economy_price" required>
+                </div>
+                <div class="form-group">
+                    <label for="business_price" class="form-label">Business price</label>
+                    <input type="text" class="form-control" id="business_price" name="business_price" [(ngModel)]="business_price" required>
+                </div>
+                <div class="form-group">
+                    <label for="photo" class="form-label">Photo</label>
+                    <input type="text" class="form-control" id="photo" name="photo" [(ngModel)]="photo">
+                </div>
+                <button class="btn btn-success" (click)="saveFlight()">Submit</button>
+               
+            </form>
+        </div>
+    </div>
+</div>

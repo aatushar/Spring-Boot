@@ -1,0 +1,89 @@
+/* .backgroundaddimage{
+    background-image: url('src/assets/hp1.png');
+    background-size: cover;
+    width: 1600x;
+    height: 380px;
+}
+.btnmargin{
+    margin-left: 5px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+} */
+
+/* Navbar styles */
+.navbar {
+    background-color: #f2f2f2;
+    padding: 10px 0;
+}
+
+.navbar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar li {
+    margin: 0 10px;
+}
+
+.navbar li a {
+    color: #333;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.navbar li a:hover {
+    background-color: #ddd;
+}
+
+/* Form styles */
+.backgroundaddimage {
+    background-image: url('https://media.istockphoto.com/id/1345382618/photo/landing-passenger-plane-during-sunset.jpg?s=1024x1024&w=is&k=20&c=9rTb-YcOkzMHEh_Lo-jpGyvE8nHv9FdEUnMbfOtDmR0=');
+    background-size: cover;
+    background-position: center;
+    min-height: 500px; /* Set a suitable height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 10px;
+    color: #2e2c2c;
+    /* font-size: 14pt; */
+}
+
+select,
+input[type="date"],
+button {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+

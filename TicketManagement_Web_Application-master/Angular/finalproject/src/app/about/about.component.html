@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biman Loyalty Club</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 32px; /* Increased font size */
+        }
+
+        p {
+            font-size: 20px; /* Increased font size */
+        }
+
+        .airline-img {
+            display: block;
+            margin: auto;
+            width: 100%; /* Increased image size */
+            margin-top: 20px;
+        }
+
+        .first-img {
+            animation: slideInUp 1s ease forwards;
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .middle-images {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="\Home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="\About">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="\Searchflight">Search Flight</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="\Login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="\Registration">Registration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="\Contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="\Feedback">Feedback</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Biman Loyalty Club</h1>
+        <img src="https://source.unsplash.com/random/800x400/?airline" alt="Airline Image" class="airline-img first-img">
+        <p>Biman is pleased to announce the resumption of Loyalty Club member services on our website. Our valuable
+            members may now log in to their accounts to update profile information and review activity such as miles
+            earned.</p>
+        <p>Please feel free to contact the Biman Loyalty Team at <a href="mailto:bimanloyaltyclub@biman.gov.bd">bimanloyaltyclub@biman.gov.bd</a>
+            with any inquiries or comments that you may have.</p>
+        <p>As always, Biman Loyalty Club is open for any of our customers to join and benefit from various special
+            offers and mileage rewards earned on every Biman flight.</p>
+        <p><a href="#" class="join-button">Join the Loyalty Club today!</a></p>
+        <div class="membership-tier">
+            <h2>Membership Tier Levels</h2>
+            <ul>
+                <li><strong>Biman</strong> YOUR NAME HERE 000001</li>
+                <li><strong>Green Member</strong> - Open and free membership for everybody. No minimum requirements.</li>
+                <li><strong>Silver Member</strong> - 4000 M Green<br>You need to have 50,000 miles per year to become a Silver Biman Loyalty Club member.<br>Silver membership for a minimal Miles are valid for a period of two years. To maintain Silver status you will need to fly 50,000 miles.</li>
+                <li><strong>Gold Member</strong> - You need to have 75,000 miles per year to become a Gold Biman Loyalty Club member.<br>Gold membership for a minimal period of two years.<br>To maintain Gold status you will need to fly 75,000 miles.</li>
+            </ul>
+        </div>
+
+        <div class="contact-info">
+            <p>For any queries, please contact:</p>
+            <p>Phone: <a href="tel:+88028901600">+880 2 8901600 Ext. 2524/2525</a></p>
+            <p>Email: <a href="mailto:blccallcenter@biman.gov.bd">blccallcenter@biman.gov.bd</a> or <a href="mailto:bimanloyaltyclub@biman.gov.bd">bimanloyaltyclub@biman.gov.bd</a></p>
+        </div>
+
+        <!-- Middle Images -->
+        <div class="middle-images">
+            <img src="https://source.unsplash.com/random/800x400/?airplane" alt="Airline Image" class="airline-img">
+            <img src="https://source.unsplash.com/random/800x400/?airport" alt="Airline Image" class="airline-img">
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

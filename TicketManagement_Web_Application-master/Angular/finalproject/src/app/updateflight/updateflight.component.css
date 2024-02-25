@@ -1,0 +1,11 @@
+label{
+    font-size: 16pt;
+}
+form{
+    background-color: azure;
+    margin-top: 50px;
+    margin-left: 100px;
+}
+button{
+    margin-top: 10px;
+}

@@ -1,0 +1,101 @@
+.backgroundaddimage{
+    background-image: url('src/assets/hp1.png');
+    background-size: cover;
+    width: 1600x;
+    height: 450px;
+}
+.btnmargin{
+    margin-left: 5px;
+}
+.container{
+    margin-top: 5px;
+    margin-left: 5px;
+}
+img{
+    margin-left: 10px;
+}
+
+.card {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    color: #2e2d31;
+    background: #e4d8d8;
+    overflow: hidden;
+    border-radius: 20px;
+    margin-left: 15px;
+    margin-right: 10px;
+  }
+  
+  
+  
+  .card_title {
+    font-weight: bold;
+  }
+  
+
+  .backgroundaddimage {
+    background-image: url('https://media.istockphoto.com/id/155439315/photo/passenger-airplane-flying-above-clouds-during-sunset.jpg?s=1024x1024&w=is&k=20&c=pNrrSjEUXD5z0YPxWi16_3j2QWDtJnoFl0-w2128Gws=');
+    background-size: cover;
+    background-position: center;
+    min-height: 580px; /* Set a suitable height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 10px;
+    color: #2e2c2c;
+    /* font-size: 14pt; */
+}
+
+select,
+input[type="date"],
+button {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #5d7f9b;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #acafb3;
+}
+
+.radio-group {
+    display: flex;
+    align-items: center;
+  }
+  
+  .radio-group label {
+    margin-right: 20px; 
+    font-size: 24px; 
+    color: aliceblue;
+    cursor: pointer;
+  }
+  
+  .radio-group input[type="radio"] {
+    margin-right: 8px; /* Adjust spacing between radio buttons and labels */
+    /* Add additional styles if required, e.g., changing the appearance of radio buttons */
+  }
+  
+  /* Optional: To improve readability, you can add hover and focus styles */
+  .radio-group label:hover,
+  .radio-group input[type="radio"]:focus + label {
+    color: #007bff; /* Change to the desired color on hover/focus */
+  }

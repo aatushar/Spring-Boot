@@ -1,0 +1,116 @@
+
+
+    <div class="container">
+        <!-- Header Section -->
+        <header class="d-flex justify-content-center py-3 bg-success-subtle">
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="/Home" class="nav-link active" aria-current="page">Home</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+            </ul>
+        </header>
+    </div>
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sidebar Section -->
+            <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-success-subtle col-md-2">
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="/Airlinesmanage" class="nav-link active" aria-current="page">
+                            <svg class="bi me-2" width="16" height="16">
+                                <use xlink:href="#home"></use>
+                            </svg>
+                            Airlines Management
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Citymanage" class="nav-link active" aria-current="page">
+                            <svg class="bi me-2" width="16" height="16">
+                                <use xlink:href="#home"></use>
+                            </svg>
+                           City Management
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/bookingmanage" class="nav-link active" aria-current="page">
+                          <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#home"></use>
+                          </svg>
+                          All Booking
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="/Bookingrequest" class="nav-link active" aria-current="page">
+                          <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#home"></use>
+                          </svg>
+                          Booking Request
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="/Cancelrequest" class="nav-link active" aria-current="page">
+                          <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#home"></use>
+                          </svg>
+                         Cancel Request
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="/Customarmanage" class="nav-link active" aria-current="page">
+                          <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#home"></use>
+                          </svg>
+                          All coustomer Report
+                        </a>
+                      </li>
+                </ul>
+                <hr>
+            </div>
+            <!-- Main Content Section -->
+            <div class="col-md-8">
+                <form>
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn btn-warning" (click)="newflightadd()">Add Flight</button>
+                    </div>
+                </form>
+                <div class="container mt-4">
+                    <form>
+                        <h1 class="text-center">All Flights</h1>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Number</th>
+                                    <th>From City</th>
+                                    <th>To City</th>
+                                    <th>Flying Date</th>
+                                    <th>Return Date</th>
+                                    <th>Image</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let st of flight; let i=index">
+                                    <td>{{st.id}}</td>
+                                    <td>{{st.name}}</td>
+                                    <td>{{st.number}}</td>
+                                    <td>{{st.from_city}}</td>
+                                    <td>{{st.to_city}}</td>
+                                    <td>{{st.flying_date}}</td>
+                                    <td>{{st.return_date}}</td>
+                                    <td>{{st.photo}}</td>
+                                    <td><button class="btn btn-warning" (click)="updatepage(st.id)">Edit</button></td>
+                                    <td><button class="btn btn-danger" (click)="delflight(st.id)">Delete</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

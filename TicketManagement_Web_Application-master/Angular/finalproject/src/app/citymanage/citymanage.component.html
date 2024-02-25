@@ -1,0 +1,109 @@
+
+
+<div class="container">
+    <header class="d-flex justify-content-center py-3 bg-success-subtle">
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="/Home" class="nav-link active" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="About" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="Searchflight" class="nav-link">Search</a></li>
+            <li class="nav-item"><a href="Contact" class="nav-link">Contact</a></li>
+            <li class="nav-item"><a href="#" class="nav-link"></a></li>
+        </ul>
+    </header>
+</div>
+<div class="container mt-4">
+    <div class="row">
+       
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-success-subtle col-md-2">
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="/Airlinesmanage" class="nav-link active" aria-current="page">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#home"></use>
+                        </svg>
+                        Airlines Management
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Citymanage" class="nav-link active" aria-current="page">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#home"></use>
+                        </svg>
+                        City Management
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/bookingmanage" class="nav-link active" aria-current="page">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#home"></use>
+                        </svg>
+                        All Booking
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Bookingrequest" class="nav-link active" aria-current="page">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#home"></use>
+                        </svg>
+                        Booking Request
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Cancelrequest" class="nav-link active" aria-current="page">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#home"></use>
+                        </svg>
+                        Cancel Request
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/Citymanage" class="nav-link active" aria-current="page">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#home"></use>
+                        </svg>
+                        All coustomer Report
+                    </a>
+                </li>
+            </ul>
+            <hr>
+        </div>
+        <!-- Main Content Section -->
+
+
+        <div class="col-md-3 form-container">
+            <form>
+                <h1 class="text-center">New City Addition</h1>
+                <div class="form-group">
+                    <label for="id" class="form-label">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" [(ngModel)]="id">
+                </div>
+                <div class="form-group">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name">
+                </div>
+                <button type="submit" class="form-control btn btn-success" (click)="saveCity()">Add City</button>
+            </form>
+        </div>
+        <div class="col-md-5">
+            <div class="container">
+                <h1 class="text-center">All City Report</h1>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Delete</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let st of city; let i=index">
+                            <td>{{st.id}}</td>
+                            <td>{{st.name}}</td>
+                            <td><button class="btn btn-danger" (click)="delflight(st.id)">Delete</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,183 @@
+
+<div class="container">
+  <header class="d-flex justify-content-center py-3 bg-success-subtle fixed">
+      <ul class="nav nav-pills">
+          <li class="nav-item"><a href="/Home" class="nav-link active" aria-current="page">Home</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
+          <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+      </ul>
+  </header>
+</div>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form class="border p-4 rounded bg-light" *ngIf="firstform">
+        <h2 class="text-center mb-4">Flight Booking</h2>
+        <div class="form-group">
+          <label for="id">ID</label>
+          <input type="text" class="form-control" id="id" name="id" [(ngModel)]="id" required>
+        </div>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" required>
+        </div>
+        <div class="form-group">
+          <label for="number" class="form-label">Number</label>
+          <input type="text" class="form-control" id="number" name="number" [(ngModel)]="number" required>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="departure_time" class="form-label">Departure Time</label>
+            <input type="time" class="form-control" id="departure_time" name="departure_time" [(ngModel)]="departure_time" required>
+          </div>
+          <div class="col-md-6">
+            <label for="arrival_time" class="form-label">Arrival Time</label>
+            <input type="time" class="form-control" id="arrival_time" name="arrival_time" [(ngModel)]="arrival_time" required>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="flying_date" class="form-label">Flying Date</label>
+          <input type="date" class="form-control" id="flying_date" name="flying_date" [(ngModel)]="flying_date" required>
+        </div>
+        <div class="mb-3" *ngIf="trip_type == 'round_trip'" >
+          <label for="return_date" class="form-label">Return Date</label>
+          <input type="date" class="form-control" id="return_date" name="return_date" [(ngModel)]="return_date" required>
+        </div>
+       
+
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label for="from_city">From City</label>
+            <select class="form-control" id="from_city" name="from_city" [(ngModel)]="from_city" required>
+              <option value="">Select City</option>
+              <option value="Dhaka">Dhaka</option>
+              <option value="Rajshahi">Rajshahi</option>
+              <option value="India">India</option>
+              <option value="USA">USA</option>
+              <option value="Chittagong">Chittagong</option>
+              <option value="Barishal">Barishal</option>
+              <option value="Thiland">Thiland</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label for="to_city">To City</label>
+            <select class="form-control" id="to_city" name="to_city" [(ngModel)]="to_city" required>
+              <option value="">Select City</option>
+              <option value="Dhaka">Dhaka</option>
+              <option value="Rajshahi">Rajshahi</option>
+              <option value="India">India</option>
+              <option value="USA">USA</option>
+              <option value="Chittagong">Chittagong</option>
+              <option value="Barishal">Barishal</option>
+              <option value="Thiland">Thiland</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select class="form-control" id="catagory" name="catagory" [(ngModel)]="catagory" required>
+            <option value="">Select Category</option>
+            <option value="International">International</option>
+            <option value="Domestic">Domestic</option>
+          </select>
+        </div>
+
+        <div class="d-grid gap-2">
+          <button type="submit" class="btn btn-success" (click)="next('secondform')">Book</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container" *ngIf="secondform">
+  <form>
+    <div class="form-group mb-3">
+      <label for="class">Select Class</label>
+      <select class="form-control" id="classcatagory" name="classcatagory" [(ngModel)]="classcatagory"
+        (change)="seatprice(class1.value)" #class1="ngModel">
+        <option value="economy">Economy</option>
+        <option>Business</option>
+      </select>
+    </div>
+    <div class="form-group mb-3">
+      <label for="price">Price</label>
+      <input type="text" class="form-control" id="price" name="price" [(ngModel)]="price" placeholder="Enter the price">
+    </div>
+    <div class="form-group mb-3">
+      <label for="seatselect">Select Seat</label>
+      <input type="text" id="seat" name="seat" [(ngModel)]="seat" class="form-control" placeholder="Enter the seat">
+      <button class="btn btn-info mt-2" (click)="next('thirdform')">Show Seat</button>
+    </div>
+    <div class="form-group mb-3">
+      <label for="nofpass">Passenger ID</label>
+      <input type="text" class="form-control" id="passanger_id" name="passanger_id" [(ngModel)]="passanger_id"
+        (keyup)="getpassinfo()" placeholder="Enter the  passengers id">
+    </div>
+    <div class="form-group mb-3">
+      <label for="passenger">Passenger Name</label>
+      <input type="text" class="form-control" id="passanger_name" name="passanger_name" [(ngModel)]="passanger_name"
+        placeholder="Enter passenger name">
+    </div>
+    <div class="form-group mb-3">
+      <label for="passenger">Passenger email</label>
+      <input type="text" class="form-control" id="email" name="email" [(ngModel)]="email" placeholder="Enter email">
+    </div>
+
+    <div class="form-group mb-3">
+      <label for="totalprice">Total Price</label>
+      <input type="text" class="form-control" id="totalprice" name="totalprice" [(ngModel)]="totalprice" disabled>
+    </div>
+    <div class="form-group mb-3">
+      <label for="gate">Gate</label>
+      <input type="text" class="form-control" id="gate" name="gate" [(ngModel)]="gate">
+    </div>
+    <div class="form-group mb-3">
+      <label for="booking_date">Booking Date</label>
+      <input type="date" class="form-control" id="booking_date" name="booking_date" [(ngModel)]="booking_date">
+    </div>
+    <button class="btn btn-warning" (click)="next('forthform')">Go to Payment System</button>
+  </form>
+</div> 
+
+
+
+
+
+<div class="container">
+
+  <form *ngIf="thirdform">
+    <button class="btn" [class]="isBooked('A1') ? 'btn-danger' : 'btn-success'" (click)="next('secondform')">A1</button>
+    <button class="btn" [class]="isBooked('A2') ? 'btn-danger' : 'btn-success'" (click)="next('secondform')">A2</button>
+    <button class="btn" [class]="isBooked('A3') ? 'btn-danger' : 'btn-success'" (click)="next('secondform')">A3</button>
+    <button class="btn" [class]="isBooked('A4') ? 'btn-danger' : 'btn-success'" (click)="next('secondform')">A4</button>
+    <button class="btn" [class]="isBooked('B1') ? 'btn-danger' : 'btn-success'" (click)="next('secondform')">B1</button>
+    <button class="btn" [class]="isBooked('B2') ? 'btn-danger' : 'btn-success'" (click)="next('secondform')">B2</button>
+    <button class="btn" [class]="isBooked('B3') ? 'btn-danger' : 'btn-success'" (click)="next('secondform')">B3</button>
+    <button class="btn" [class]="isBooked('B4') ? 'btn-danger' : 'btn-success'" (click)="next('secondform')">B4</button>
+    <button class="btn" [class]="isBooked('C1') ? 'btn-danger' : 'btn-success'" (click)="next('secondform')">C1</button>
+    <button class="btn" [class]="isBooked('C2') ? 'btn-danger' : 'btn-success'" (click)="next('secondform')">C2</button>
+    <button class="btn" [class]="isBooked('C3') ? 'btn-danger' : 'btn-success'" (click)="next('secondform')">C3</button>
+    <button class="btn" [class]="isBooked('C4') ? 'btn-danger' : 'btn-success'" (click)="next('secondform')">C4</button>
+  </form>
+</div>
+
+<div class="container">
+  <form *ngIf="forthform">
+    <h4>which paymennt you select?</h4>
+    <button class=" btn btn-info"> Bkash</button>
+    <button class=" btn btn-info"> Nagad</button>
+    <button class=" btn btn-info" (click)="next('fifthform')"> Card</button>
+  </form>
+</div>
+
+<div class="container">
+  <form *ngIf="fifthform">
+    <label for="payment">Payable</label>
+    <input type="text" id="total_amount" name="total_amount" [(ngModel)]="total_amount"><br>
+    <button type="submit" class="btn btn-success" (click)="invoiceinsert()">Pay Confirm</button>
+  </form>
+</div>

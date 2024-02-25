@@ -1,0 +1,140 @@
+
+
+
+
+
+
+
+
+
+<div class="container">
+  <!-- Header Section -->
+  <header class="d-flex justify-content-center py-3 bg-success-subtle">
+    <ul class="nav nav-pills">
+      <li class="nav-item"><a href="/Home" class="nav-link active" aria-current="page">Home</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+    </ul>
+  </header>
+</div>
+<div class="container mt-4">
+  <div class="row">
+    <!-- Sidebar Section -->
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-success-subtle col-md-2">
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+          <a href="/Airlinesmanage" class="nav-link active" aria-current="page">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#home"></use>
+            </svg>
+            Airlines Management
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/Citymanage" class="nav-link active" aria-current="page">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#home"></use>
+            </svg>
+            City Management
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="/bookingmanage" class="nav-link active" aria-current="page">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#home"></use>
+            </svg>
+            All Booking
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/Bookingrequest" class="nav-link active" aria-current="page">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#home"></use>
+            </svg>
+            Booking Request
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/Cancelrequest" class="nav-link active" aria-current="page">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#home"></use>
+            </svg>
+            Cancel Request
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/Customarmanage" class="nav-link active" aria-current="page">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#home"></use>
+            </svg>
+            All coustomer Report
+          </a>
+        </li>
+      </ul>
+      <hr>
+    </div>
+    <!-- Main Content Section -->
+    <div class="col-md-8">
+      <form>
+        <div class="d-flex justify-content-end">
+          <input type="text" id="passenger_id" name="passenger_id" [(ngModel)]="passenger_id">
+          <button type="button" class="btn btn-warning" (click)="showBookingList()">Search</button>
+        </div>
+      </form>
+      <div class="col-md-9 col-lg-10">
+        <table>
+            <thead>
+                <tr>
+                    <th>Invoice number</th>
+                    <th>Passenger id</th>
+                    <th>Passenger name</th>
+                    <th>Flight number</th>
+                    <th>Flight name</th>
+                    <th>From City</th>
+                    <th>To city</th>
+                    <th>Flying Date</th>
+                    <th>Return Date</th>
+                    <th>Arrival Time</th>
+                    <th>Departure Time</th>
+                    <th>Seat</th>
+                    <th>Gate</th>
+                    <th>Booking Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let st of booked; let i=index">
+                    <td>{{st.bookingid}}</td>
+                    <td>{{st.passanger_id}}</td>
+                    <td>{{st.passanger_name}}</td>
+                    <td>{{st.flight_number}}</td>
+                    <td>{{st.flight_name}}</td>
+                    <td>{{st.from_city}}</td>
+                    <td>{{st.to_city}}</td>
+                    <td>{{st.flying_date}}</td>
+                    <td>{{st.return_date}}</td>
+                    <td>{{st.arrival_time}}</td>
+                    <td>{{st.departure_time}}</td>
+                    <td>{{st.seat}}</td>
+                    <td>{{st.gate}}</td>
+                    <td>{{st.booking_date}}</td>
+                    <td>{{st.status}}</td>
+                    <td><button class="btn btn-cancel" (click)="GetTicekt(st.bookingid)">>ticket</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <canvasjs-chart [options]="chartOptions" [styles]="{width: '100%', height:'360px'}"></canvasjs-chart>    
+</div> 
+<div>
+
+</div>

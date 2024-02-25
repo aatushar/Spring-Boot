@@ -1,0 +1,51 @@
+<div class="ticket">
+  <div class="header">AIR TICKET</div>
+  <div class="flight-details">
+    <div class="flight-info">
+      <span class="label">Airline:</span> {{ticket.flight_name}}
+      <span class="label">Flight:</span> {{ticket.flight_number}}
+    </div>
+    <div class="flight-info">
+      <span class="label">From City:</span> {{ticket.from_city}}
+      <span class="label">To City:</span> {{ticket.to_city}}   
+      <span class="label">Flying DAte:</span> {{ticket.flying_date}}
+    </div>
+    <div class="flight-info">
+      <span class="label">Arival:</span> {{ticket.arrival_time}}
+      <span class="label">Departure:</span> {{ticket.departure_time}}
+    </div>
+  </div>
+  <div class="passenger">
+    <div class="passenger-info">
+      <span class="label">Passenger:</span> {{ticket.passanger_name}}
+      <span class="label">Seat:</span> {{ticket.seat}}
+    </div>
+  </div>
+  <div class="boarding-pass">
+    <div class="boarding-info">
+      <span class="label">Departure Gate:</span> {{ticket.gate}}
+      <span class="label">Boarding Time:</span> 9:30 AM
+    </div>
+    <!-- <div class="boarding-info">
+      <span class="label">Seat:</span> 23A
+      <span class="label">Boarding Pass No:</span> 123456
+    </div> -->
+  </div>
+  <!-- <div class="important-info">
+    <div class="info">
+      <span class="label">Baggage Allowance:</span> 1 Carry-on bag, 1 Personal item
+    </div>
+    <div class="info">
+      <span class="label">Check-in online at</span>
+      <a href="http://www.xyzairlines.com" target="_blank">www.xyzairlines.com</a>
+      <span class="label">24 hrs before departure</span>
+    </div>
+  </div> -->
+
+  <div><button class="btn btn-success" (click)="printTicket()">Print</button></div>
+  <!-- <div class="footer">
+    Thank you for choosing XYZ Airlines. Have a pleasant journey!
+  </div> -->
+</div>
+
+

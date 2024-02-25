@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        .contact-form {
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+
+        .contact-form h3 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .contact-form input[type="text"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+        }
+
+        .contact-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #45a049;
+        }
+
+        .useful-links {
+            margin-top: 20px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .useful-links p {
+            font-weight: bold;
+        }
+
+        .useful-links ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .useful-links li {
+            margin-bottom: 10px;
+        }
+
+        .useful-links li a {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .useful-links li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="contact-form">
+    <h3>We'd love to hear from you</h3>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name">
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email">
+    <label for="message">Message:</label>
+    <textarea id="message" name="message"></textarea>
+    <div>
+        <p>
+            (Optional Section) Enter details of booking so that we be more specific about feedback.</p>
+        <form action="<URL_of_the_server>" method="POST" enctype="multipart/form-data">
+            <label for="pnr">PNR (6 Letter)</label><br>
+            <input type="text" id="pnr" name="pnr" maxlength="6"><br>
+            <label for="ticketNumber">Ticket Number (13 Digit)</label><br>
+            <input type="text" id="ticketNumber" name="ticketNumber" maxlength="13"><br>
+            <label for="journeyDate">Journey Date</label><br>
+            <input type="date" id="journeyDate" name="journeyDate"><br>
+            <label for="ticket">Ticket : Image / Pdf "image size not greater than 500KB</label><br>
+            <input type="file" id="ticket" name="ticket" accept="image/*, application/pdf" maxsize="500000"><br>
+            <label for="captcha">Captcha *</label><br>
+            <div class="g-recaptcha" data-sitekey="<YOUR_CAPTCHA_SITE_KEY>"></div><br>
+            <input type="submit" value="Send Message">
+        </form>
+        <p>Biman<br>
+            BANGLADESH AIRLINES<br>
+            Head Office,<br>
+            Balaka, Kurmitola,<br>
+            Dhaka-1229, Bangladesh.<br>
+            +88-02-8901600</p>
+        <div class="g-recaptcha" data-sitekey="<YOUR_CAPTCHA_SITE_KEY>"></div>
+        <ul>
+            <li><a href="<URL_of_Accessibility_Plan>">Accessibility Plan</a></li>
+            <li><a href="<URL_of_Latest_News>">Latest News</a></li>
+            <li><a href="<URL_of_Careers_page>">Careers</a></li>
+        </ul>
+        <ul>
+            <li><a href="<URL_of_Biman_Govt_Portal>">Biman Govt. Portal</a></li>
+            <li><a href="<URL_of_Biman_Flight_Catering_Centre>">Biman Flight Catering Centre</a></li>
+            <li><a href="<URL_of_Civil_Aviation_Authority_Bangladesh>">Civil Aviation Authority, Bangladesh</a></li>
+            <li><a href="<URL_of_Travel_Agents_page>">Travel Agents</a></li>
+            <li><a href="<URL_of_Online_Travel_Agency_page>">Online Travel Agency</a></li>
+            <li><a href="<URL_of_Booking_Policy>">Booking Policy</a></li>
+            <li><a href="<URL_of_ADM_Policy>">ADM Policy</a></li>
+        </ul>
+    </div>
+
+    <button type="submit">Submit</button>
+
+
+
+    <div class="useful-links">
+        <p>Useful Links</p>
+        <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">FAQs</a></li>
+        </ul>
+    </div>
+</div>
+
+
+
+</body>
+</html>

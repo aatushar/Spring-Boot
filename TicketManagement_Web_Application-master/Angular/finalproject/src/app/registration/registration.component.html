@@ -1,0 +1,91 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <!-- <a class="navbar-brand" href="\Home">Home</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="\Home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="\About">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="\Searchflight">Search Flight</a>
+                </li>
+                <!-- <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Login
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="\Login">Login As Admin</a></li>
+                        <li><a class="dropdown-item" href="\Login">Login As Customer</a></li>
+                    </ul>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="\Login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="\Registration">Registration</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="\Contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="\Feedback">Feedback</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="background">
+        <form>
+            <h3>User Login Information</h3>
+
+            <div class="mb-3">
+                <label for="customer_id" class="form-label">Customer Id</label>
+                <input type="text" class="form-control" id="customer_id" name="customer_id" [(ngModel)]="customer_id">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email"
+                    [(ngModel)]="email">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password">
+            </div>
+            <div>
+                <h3>User Personal Information</h3>
+            </div>
+
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name">
+            </div>
+            <div class="mb-3">
+                <label for="birthdate" class="form-label">Date Of birth</label>
+                <input type="date" class="form-control" id="birthdate" name="dob" [(ngModel)]="dob">
+            </div>
+            <div class="mb-3">
+                <label for="nationality" class="form-label">Nationality</label>
+                <input type="text" class="form-control" id="nationality" name="nationality" [(ngModel)]="nationality">
+            </div>
+            <div class="mb-2">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="phone" class="form-control" id="phone" name="phone" [(ngModel)]="phone">
+            </div>
+            <h3>User Address Details</h3>
+            <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <input type="text" class="form-control" id="address" name="address" [(ngModel)]="address">
+            </div>
+            <button type="submit" class="btn form-control" (click)="saveCustomar()">Submit</button>
+        </form>
+
+    </div>
+</div>

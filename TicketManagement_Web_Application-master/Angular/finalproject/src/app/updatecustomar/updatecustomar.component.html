@@ -1,0 +1,81 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <!-- <a class="navbar-brand" href="\Home">Home</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button> -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="\Home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="\About">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="\Searchflight">Search Flight</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Login
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="\Login">Login As Admin</a></li>
+                        <li><a class="dropdown-item" href="\Login">Login As Customer</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="\Registration">Registration</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="\Contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="\Feedback">Feedback</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="background">
+        <form>
+            <div>
+                <h3 align="center">User Personal Information</h3> 
+            </div>
+            <div class="mb-2">
+                <label for="cid" class="form-label">Cid</label>
+                <input type="text" class="form-control" id="cid" name="cid" [(ngModel)]="cid">
+            </div>
+            
+            <div class="mb-2">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name">
+            </div>
+            <div class="mb-2">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email">
+            </div>
+            <div class="mb-2">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="phone" class="form-control" id="phone" name="phone" [(ngModel)]="phone">
+            </div>
+            <div class="mb-2">
+                <label for="dob" class="form-label">Date Of birth</label>
+                <input type="date" class="form-control" id="dob"  name="dob" [(ngModel)]="dob">
+            </div>
+            <div class="mb-2">
+                <label for="nationality" class="form-label">Nationality</label>
+                <input type="text" class="form-control" id="nationality"  name="nationality" [(ngModel)]="nationality">
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <input type="text" class="form-control" id="address"  name="address" [(ngModel)]="address">
+            </div>
+            <button type="submit" class="btn btn-success form-control">Update</button>
+            <button type="submit" class="btn btn-info form-control">Reset</button>
+        </form>
+
+    </div>
+

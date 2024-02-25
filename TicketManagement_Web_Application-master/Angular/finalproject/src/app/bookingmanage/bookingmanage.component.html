@@ -1,0 +1,114 @@
+<header class="d-flex justify-content-center py-3 bg-success-subtle">
+  <ul class="nav nav-pills">
+    <li class="nav-item"><a href="/Home" class="nav-link active" aria-current="page">Home</a></li>
+    <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+    <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
+    <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
+    <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+  </ul>
+</header>
+
+<div class="container mt-4">
+  <div class="row">
+    <!-- Sidebar Section -->
+    <div class="d-flex flex-column flex-shrink-0 text-white bg-success-subtle col-md-2">
+      <ul class="nav nav-pills flex-column">
+        <h2 class="text-dark">Admin Dashboard</h2>
+        <li class="nav-item">
+          <a href="/Airlinesmanage" class="nav-link active" aria-current="page">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#home"></use>
+            </svg>
+            Airlines Management
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/Citymanage" class="nav-link active" aria-current="page">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#home"></use>
+            </svg>
+            City Management
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="/bookingmanage" class="nav-link active" aria-current="page">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#home"></use>
+            </svg>
+            All Booking
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/Bookingrequest" class="nav-link active" aria-current="page">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#home"></use>
+            </svg>
+            Booking Request
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/Cancelrequest" class="nav-link active" aria-current="page">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#home"></use>
+            </svg>
+            Cancel Request
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="/Citymanage" class="nav-link active" aria-current="page">
+            <svg class="bi me-2" width="16" height="16">
+              <use xlink:href="#home"></use>
+            </svg>
+            All coustomer Report
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-8">
+      <div class="container mt-4">
+        <form>
+          <h1 class="text-center">All Booking Report</h1>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Invoice number</th>
+                <th>Passenger id</th>
+                <th>Passenger name</th>
+                <th>Flight number</th>
+                <th>Flight name</th>
+                <th>From City</th>
+                <th>To city</th>
+                <th>Flying Date</th>
+                <th>Class category</th>
+                <th>Seat</th>
+                <th>Gate</th>
+                <th>Booking Date</th>
+                <th>Status</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let st of booked; let i=index">
+                <td>{{st.bookingid}}</td>
+                <td>{{st.passanger_id}}</td>
+                <td>{{st.passanger_name}}</td>
+                <td>{{st.flight_number}}</td>
+                <td>{{st.flight_name}}</td>
+                <td>{{st.from_city}}</td>
+                <td>{{st.to_city}}</td>
+                <td>{{st.flying_date}}</td>
+                <td>{{st.classcatagory}}</td>
+                <td>{{st.seat}}</td>
+                <td>{{st.gate}}</td>
+                <td>{{st.booking_date}}</td>
+                <td>{{st.status}}</td>
+
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

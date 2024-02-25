@@ -1,0 +1,6 @@
+.backgroundaddimage{
+    background-image: url('src/assets/adb1.jpg');
+    background-size: cover;
+    width: 1600x;
+    height: 380px;
+}

@@ -1,0 +1,93 @@
+.user-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.user-label {
+    flex: 1;
+    font-weight: bold;
+}
+
+.user-info {
+    flex: 3;
+    color: #555;
+}
+
+div{
+    background-color: rgb(243, 250, 250);
+    
+
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bg-success-subtle {
+    background-color: #e0f2e9;
+}
+
+/* Add your custom styles for the header, sidebar, and main content here */
+
+.nav-pills .nav-link {
+    color: #333;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #28a745;
+    color: #fff;
+}
+.nav-item{
+    margin-top: 10px;
+}
+
+.nav-pills .nav-link:hover {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.table {
+    width: 100%;
+}
+
+.table thead th {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table td, .table th {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.btn-warning:hover {
+    background-color: #ffcd39;
+    color: #333;
+}

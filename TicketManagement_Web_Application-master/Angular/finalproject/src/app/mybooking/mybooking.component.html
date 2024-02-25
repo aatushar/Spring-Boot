@@ -1,0 +1,81 @@
+
+
+      <!-- Navbar -->
+      <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="Home">Home</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="Searchflight">Search</a></li>
+                    <li class="nav-item"><a class="nav-link" href="About">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar">
+                <h4>Dashboard</h4>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/Myprofile">My Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Mybooking">My Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Logout">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Main Content -->
+            <div class="col-md-9 col-lg-10">
+                <h1>All Booked Report</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Invoice number</th>
+                            <th>Passenger id</th>
+                            <th>Passenger name</th>
+                            <th>Flight number</th>
+                            <th>Flight name</th>
+                            <th>From City</th>
+                            <th>To city</th>
+                            <th>Flying Date</th>
+                            <th>Return Date</th>
+                            <th>Class category</th>
+                            <th>Seat</th>
+                            <th>Gate</th>
+                            <th>Booking Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let st of booked; let i=index">
+                            <td>{{st.bookingid}}</td>
+                            <td>{{st.passanger_id}}</td>
+                            <td>{{st.passanger_name}}</td>
+                            <td>{{st.flight_number}}</td>
+                            <td>{{st.flight_name}}</td>
+                            <td>{{st.from_city}}</td>
+                            <td>{{st.to_city}}</td>
+                            <td>{{st.flying_date}}</td>
+                            <td>{{st.return_date}}</td>
+                            <td>{{st.classcatagory}}</td>
+                            <td>{{st.seat}}</td>
+                            <td>{{st.gate}}</td>
+                            <td>{{st.booking_date}}</td>
+                            <td>{{st.status}}</td>
+                            <td><button class="btn btn-cancel" (click)="cancelrequest(st.bookingid)">Cancel</button></td>
+                            <td><button class="btn btn-cancel" (click)="GetTicekt(st.bookingid)">Get Ticket</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
